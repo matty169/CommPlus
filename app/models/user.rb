@@ -12,5 +12,6 @@
 
 class User < ActiveRecord::Base
 	has_many :skills
-	has_many :events, :through => attendee
+	has_many :attendees
+	has_many :events, :through => :attendees
 end

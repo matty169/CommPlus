@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20130717163051) do
 
   create_table "attendees", force: true do |t|
     t.string   "event_id"
-    t.string   "user_id_string"
+    t.string   "user_id"
     t.string   "skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"

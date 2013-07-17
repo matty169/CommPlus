@@ -16,7 +16,7 @@
     <% @attendees.each do |attendee| %>
       <tr>
         <td><%= attendee.event_id %></td>
-        <td><%= attendee.user_id_string %></td>
+        <td><%= attendee.user_id%></td>
         <td><%= attendee.skill_id %></td>
         <td><%= link_to 'Show', attendee %></td>
         <td><%= link_to 'Edit', edit_attendee_path(attendee) %></td>
