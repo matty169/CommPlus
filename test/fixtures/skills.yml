@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teach: false
+  name: MyString
+  description: MyString
+  numb_events: 1
+
+two:
+  teach: false
+  name: MyString
+  description: MyString
+  numb_events: 1

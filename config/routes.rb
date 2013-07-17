@@ -1,4 +1,6 @@
 CommPlus::Application.routes.draw do
+  resources :skills
+
   get "static_pages/home"
   get "static_pages/about"
   root to: 'users#index'
