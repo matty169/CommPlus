@@ -1,4 +1,8 @@
 CommPlus::Application.routes.draw do
+  resources :attendees
+
+  resources :events
+
   resources :skills
 
   get "static_pages/home"
