@@ -10,6 +10,13 @@ CommPlus::Application.routes.draw do
   root to: 'users#index'
   resources :users
 
+  namespace :api do
+    resources :users, only: [:index, :show, :create, :update, :destroy]
+    resources :events, only: [:index, :show, :create, :update, :destroy]
+    resources :skills, only: [:index, :show, :create, :update, :destroy]
+    resources :attendees, only: [:create, :destroy]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

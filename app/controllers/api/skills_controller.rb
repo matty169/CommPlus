@@ -1,26 +1,8 @@
-class SkillsController < ApplicationController
-  before_action :set_skill, only: [:show, :edit, :update, :destroy]
-   
+class Api::SkillsController < ApplicationController
+ before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with :name => "android", :password => "1234"
+    skip_before_filter :verify_authenticity_token
 
-  # GET /skills
-  # GET /skills.json
-  def index
-    @skills = Skill.all
-  end
-
-  # GET /skills/1
-  # GET /skills/1.json
-  def show
-  end
-
-  # GET /skills/new
-  def new
-    @skill = Skill.new
-  end
-
-  # GET /skills/1/edit
-  def edit
-  end
 
   # POST /skills
   # POST /skills.json
@@ -33,20 +15,6 @@ class SkillsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @skill }
       else
         format.html { render action: 'new' }
-        format.json { render json: @skill.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /skills/1
-  # PATCH/PUT /skills/1.json
-  def update
-    respond_to do |format|
-      if @skill.update(skill_params)
-        format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
         format.json { render json: @skill.errors, status: :unprocessable_entity }
       end
     end
@@ -70,6 +38,7 @@ class SkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_params
-      params.require(:skill).permit(:teach, :name, :description, :numb_events)
+      params.require(:skill).permit(:teach, :name, :description)
     end
 end
+

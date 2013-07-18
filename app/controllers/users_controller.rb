@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
      @user = User.find(params[:id])
+     @skill = @user.skills
     respond_with @users
   end
 
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    respond_with @users
+    #respond_with @users
   end
 
   # PATCH/PUT /users/1

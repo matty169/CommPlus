@@ -1,5 +1,7 @@
-class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+class Api::EventsController < ApplicationController
+	before_action :set_event, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with :name => "android", :password => "1234"
+    skip_before_filter :verify_authenticity_token
 
   # GET /events
   # GET /events.json
@@ -10,15 +12,6 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show      # will be default will generate show.html.erb
-  end
-
-  # GET /events/new
-  def new
-    @event = Event.new
-  end
-
-  # GET /events/1/edit
-  def edit
   end
 
   # POST /events
@@ -69,6 +62,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :date, :time, :location, :description, :attendee_id)
+      params.require(:event).permit(:name, :date, :time, :location, :description)
     end
 end
