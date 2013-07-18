@@ -5,7 +5,7 @@ namespace :db do
   task populate: :environment do
     matthew = User.create!(name: "Matthew Looi",
                  description: "He loves Simon Sinek")
-    parkour = Skill.create!(user_id: matthew.id, teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
+    parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
     program = Skill.create!(user_id: matthew.id, teach: false, name: "Programming", description: "Ruby on rails is difficult")
 
     hack = Event.create!(name: "Hackathon", location: "Wits", description: "This is going to be a long weeked")
