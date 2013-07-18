@@ -16,6 +16,6 @@
 class Event < ActiveRecord::Base
 	has_many :attendees
 	has_many :users, :through => :attendee
-	has_many :skills
+	has_many :attendees
 	has_many :skills, :through => :attendee
 end

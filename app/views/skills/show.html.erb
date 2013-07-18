@@ -20,5 +20,10 @@
   <%= @skill.numb_events %>
 </p>
 
+<p>
+  <strong>Events:</strong>
+  <%= @skill.attendees.first.event.name %>	<!-- You can pulls the events from the skill-->
+</p>
+
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
 <%= link_to 'Back', skills_path %>
