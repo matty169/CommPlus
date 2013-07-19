@@ -14,8 +14,9 @@ class SkillsController < ApplicationController
   end
 
   # GET /skills/new
+  # You can only create new skills from user profile, that way the user_id is always set.
   def new
-    @skill = Skill.new
+    @skill = Skill.new(user_id: params[:id])
   end
 
   # GET /skills/1/edit
@@ -70,6 +71,6 @@ class SkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_params
-      params.require(:skill).permit(:teach, :name, :description, :numb_events)
+      params.require(:skill).permit(:teach, :name, :description, :user_id)
     end
 end

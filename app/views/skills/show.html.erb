@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Info</h1>
+
 <p>
   <strong>Teach:</strong>
   <%= @skill.teach %>
@@ -16,14 +18,45 @@
 </p>
 
 <p>
-  <strong>Numb events:</strong>
-  <%= @skill.numb_events %>
+  <strong>User_id:</strong>
+  <%= @skill.user_id %>
 </p>
+
+<%= link_to 'Edit', edit_skill_path(@skill) %>
+
+<h1>Related Events</h1>
 
 <p>
-  <strong>Events:</strong>
-  <%= @skill.attendees.first.event.name %>	<!-- You can pulls the events from the skill-->
+  <strong>Events Count:</strong>
+  <%= @skill.attendees.count %>  <!-- You can pulls the events from the skill-->
 </p>
 
-<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skill.attendees.each do |attendee| %>
+      <tr>
+        <td><%= attendee.event.name %></td>
+        <td><%= attendee.event.description%></td>
+        <td><%= attendee.event.date%></td>
+        <td><%= attendee.event.time%></td>
+        <td><%= link_to 'Show', attendee.event %></td>
+        <td><%= link_to 'Edit', edit_event_path(attendee.event) %></td>
+        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
 <%= link_to 'Back', skills_path %>

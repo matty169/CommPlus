@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Info</h1>
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -25,22 +25,15 @@
   <%= @event.description %>
 </p>
 
-<p>
-  <strong>Attendee:</strong>
-  <%= @event.attendee_id %>
-</p>
+<%= link_to 'Edit', edit_event_path(@event) %>
 
+<h1>Attendees</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -49,26 +42,21 @@
       <tr>
         <td><%= attendee.user.name %></td>
         <td><%= attendee.user.description %></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'Show', '#' %></td>
-        <td><%= link_to 'Edit', '#' %></td>
-        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', attendee.user %></td>
+        <td><%= link_to 'Edit', edit_user_path(attendee.user) %></td>
+        <td><%= link_to 'Destroy', attendee.user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h1>Skills</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -77,11 +65,9 @@
       <tr>
         <td><%= attendee.skill.name %></td>
         <td><%= attendee.skill.description %></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'Show', '#' %></td>
-        <td><%= link_to 'Edit', '#' %></td>
-        <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', attendee.skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(attendee.skill) %></td>
+        <td><%= link_to 'Destroy', attendee.skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -89,5 +75,5 @@
 
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
 <%= link_to 'Back', events_path %>

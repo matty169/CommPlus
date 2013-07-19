@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Info</h1>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -15,6 +17,11 @@
   <%= @user.rating %>
 </p>
 
+<%= link_to 'Edit', edit_user_path(@user) %>
+
+<h1>Skills</h1>
+<h2>Offer and Learn</h2>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,9 +29,6 @@
       <th>Name</th>
       <th>Description</th>
       <th>Numb events</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -42,17 +46,17 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to 'New Skill', new_skill_path(id: @user.id) %>
+
+<h1>Events</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Teach</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Numb events</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Date</th>
+      <th>Time</th>
     </tr>
   </thead>
 
@@ -60,11 +64,11 @@
     <% @user.attendees.each do |attendee| %>
       <tr>
         <td><%= attendee.event.name %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><%= link_to 'Show', '#' %></td>
-        <td><%= link_to 'Edit', '#' %></td>
+        <td><%= attendee.event.description%></td>
+        <td><%= attendee.event.date%></td>
+        <td><%= attendee.event.time%></td>
+        <td><%= link_to 'Show', attendee.event %></td>
+        <td><%= link_to 'Edit', edit_event_path(attendee.event) %></td>
         <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -72,6 +76,4 @@
 </table>
 
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
