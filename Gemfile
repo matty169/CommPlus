@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 2.3.2.0'		# This is has not been set up nor has it bee
 gem 'faker'
 gem 'devise'		# only simple setup. Need to add data validation in models too.
 gem "cancan"		# only superficially in the views, not the controllers.
+gem "jqcloud-rails"
 
 # It is working but there is no imagemagic to transform the data. And no default picture.
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
