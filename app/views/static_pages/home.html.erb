@@ -1,4 +1,17 @@
-<h1>Welcome Home!</h1>
+<div class="center hero-unit">
+  <h1>Welcome to Community+</h1>
+
+  <h2>
+    Learn, share and connect
+  </h2>
+
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-warning" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+
+<!-- <h1>Welcome Home!</h1>
 
 <div id= "user_nav">
 	<% if user_signed_in? %>
@@ -12,5 +25,6 @@
 <%= link_to 'My Profile', user_path(current_user) %>
 <%= link_to 'Users', users_path %>
 <%= link_to 'Events', events_path %>
-<%= link_to 'Skills', skills_path %>
+<%= link_to 'Skills', skills_path %> -->
+
 
