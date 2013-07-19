@@ -5,6 +5,13 @@ namespace :db do
   task populate: :environment do
     matthew = User.create!(email: "looi.matthew1@gmail.com", password: "password", password_confirmation: "password")
     matthew.update(name: "Matthew Looi", description: "He loves Simon Sinek")
+    matthew.tags.create!(name: "Creative")
+    matthew.tags.create!(name: "Simon Sinek")
+    matthew.tags.create!(name: "Cheescake")
+    matthew.tags.create!(name: "Open-minded")
+    matthew.tags.create!(name: "Engineering")
+    matthew.tags.create!(name: "Ambitious")
+    matthew.tags.create!(name: "Caring")
 
 
     parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
@@ -25,10 +32,18 @@ namespace :db do
       dummy = User.create!(email: email, password: "password", password_confirmation: "password")
       dummy.update(name: name, description: desc)
 
+      # Adding some tags to user
+      10.times do |x|
+        dummy.tags.create!(name: Faker::Lorem.word)
+      end
       # Creating a Skill Teach called 
       desc = Faker::Lorem.sentence(sentence_count = 3)
       name  = Faker::Name.name
-      dummy.skills.create(user_id: dummy.id, teach: true, name: name, description: desc)
+      new_skill = dummy.skills.create!(user_id: dummy.id, teach: true, name: name, description: desc)
+      # adding some tags to skill
+      5.times do |x|
+        new_skill.tags.create!(name: Faker::Lorem.word)
+      end
       # Creating a Skill Teach called 
       desc = Faker::Lorem.sentence(sentence_count = 3)
       name  = Faker::Name.name
@@ -44,11 +59,18 @@ namespace :db do
       email = Faker::Internet.free_email
       dummy = User.create!(email: email, password: "password", password_confirmation: "password")
       dummy.update(name: name, description: desc)
-
+      # Adding some tags
+      10.times do |x|
+        dummy.tags.create!(name: Faker::Lorem.word)
+      end
 
       desc = Faker::Lorem.sentence(sentence_count = 3)
       name  = Faker::Name.name
-      dummy.skills.create(user_id: dummy.id, teach: true, name: name, description: desc)
+      new_skill = dummy.skills.create(user_id: dummy.id, teach: true, name: name, description: desc)
+      # adding some tags to skill
+      5.times do |x|
+        new_skill.tags.create!(name: Faker::Lorem.word)
+      end
       desc = Faker::Lorem.sentence(sentence_count = 3)
       name  = Faker::Name.name
       dummy.skills.create(user_id: dummy.id, teach: false, name: name, description: desc)
