@@ -25,7 +25,15 @@
   <%= @event.description %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %>
+<% @event.attendees.each do |attendee| %>
+<% if can? :manage, attendee.user %>
+  <%= link_to 'Edit', edit_event_path(@event) %>
+  <% break %>
+<% end %>
+<% end %>
+
+
+
 
 <h1>Attendees</h1>
 

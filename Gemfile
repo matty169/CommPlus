@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: s'rails/rails'
 gem 'rails', '4.0.0'
-gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'bootstrap-sass', '~> 2.3.2.0'		# This is has not been set up nor has it been used.
 gem 'faker'
-gem 'devise'
+gem 'devise'		# only simple setup. Need to add data validation in models too.
+gem "cancan"		# only superficially in the views, not the controllers.
 
 group :development do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3'			# Need to upgrade to psotgress.
 gem 'annotate'
 end
 

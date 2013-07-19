@@ -21,8 +21,10 @@
   <strong>User_id:</strong>
   <%= @skill.user_id %>
 </p>
-
+<% if can? :manage, @skill %>
 <%= link_to 'Edit', edit_skill_path(@skill) %>
+<% end %>
+
 
 <h1>Related Events</h1>
 

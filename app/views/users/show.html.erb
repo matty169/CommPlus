@@ -27,8 +27,9 @@
 </p>
 
 
-
+<% if can? :manage, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
 
 <h1>Skills</h1>
 <h2>Offer and Learn</h2>
