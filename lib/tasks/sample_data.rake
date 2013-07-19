@@ -3,8 +3,10 @@ namespace :db do
 
 
   task populate: :environment do
-    matthew = User.create!(name: "Matthew Looi",
-                 description: "He loves Simon Sinek")
+    matthew = User.create!(email: "looi.matthew1@gmail.com", password: "password", password_confirmation: "password")
+    matthew.update(name: "Matthew Looi", description: "He loves Simon Sinek")
+
+
     parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
     program = Skill.create!(user_id: matthew.id, teach: false, name: "Programming", description: "Ruby on rails is difficult")
 
@@ -14,13 +16,14 @@ namespace :db do
     ruby_atendees = Attendee.create!(event_id: ruby.id, user_id: matthew.id, skill_id: program.id)
     hackathon_atendees = Attendee.create!(event_id: hack.id, user_id: matthew.id, skill_id: parkour.id)
 
-    99.times do |n|
+    10.times do |n|
 
       # Creating a User called Dummy
       name  = Faker::Name.name
       desc = Faker::Lorem.sentence(sentence_count = 3)
-      dummy = User.create!(name: name,
-                   description: desc)
+      email = Faker::Internet.free_email
+      dummy = User.create!(email: email, password: "password", password_confirmation: "password")
+      dummy.update(name: name, description: desc)
 
       # Creating a Skill Teach called 
       desc = Faker::Lorem.sentence(sentence_count = 3)
@@ -38,8 +41,11 @@ namespace :db do
     10.times do |n|
       name  = Faker::Name.name
       desc = Faker::Lorem.sentence(sentence_count = 3)
-      dummy = User.create!(name: name,
-                   description: desc)
+      email = Faker::Internet.free_email
+      dummy = User.create!(email: email, password: "password", password_confirmation: "password")
+      dummy.update(name: name, description: desc)
+
+
       desc = Faker::Lorem.sentence(sentence_count = 3)
       name  = Faker::Name.name
       dummy.skills.create(user_id: dummy.id, teach: true, name: name, description: desc)

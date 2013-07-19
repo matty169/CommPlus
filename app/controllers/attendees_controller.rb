@@ -1,5 +1,6 @@
 class AttendeesController < ApplicationController
   before_action :set_attendee, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /attendees
   # GET /attendees.json

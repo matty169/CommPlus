@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
    
 
   # GET /skills
@@ -16,7 +17,7 @@ class SkillsController < ApplicationController
   # GET /skills/new
   # You can only create new skills from user profile, that way the user_id is always set.
   def new
-    @skill = Skill.new(user_id: params[:id])
+    @skill = Skill.new(user_id: params[:id])  # This is used to find the paramer ID when it is called.
   end
 
   # GET /skills/1/edit
