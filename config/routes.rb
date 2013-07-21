@@ -13,6 +13,9 @@ CommPlus::Application.routes.draw do
   root to: 'static_pages#home'
   resources :users
 
+  get "/recommended", to: 'skills#match'
+  get "/explore", to: 'skills#explore'
+
   namespace :api do
     resources :users, only: [:index, :show, :create, :update, :destroy]
     resources :events, only: [:index, :show, :create, :update, :destroy]

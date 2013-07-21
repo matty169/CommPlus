@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all   # the sort works.
+    @bleh = User.skill_match(current_user)
+    # @users_skill_match = User.skill_match
+    # @users_recommended = User.recommed
   end
 
   # GET /users/1

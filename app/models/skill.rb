@@ -20,22 +20,34 @@ class Skill < ActiveRecord::Base
 
 	include PgSearch
 	# add some weightings.
+	# has root stemming
+	# would like trigram search and double metaphone search
 	pg_search_scope :search, :against => {:name =>'A'},
-	using: {tsearch: {dictionary: "english"}},
+	using: {tsearch: {dictionary: "english", prefix: true, any_word: true}},
 	associated_against: {tags: {:name =>'B'}}
 
-	def self.text_search(query)
+	pg_search_scope :search_offer, :against => {:name =>'A'},
+	using: {tsearch: {dictionary: "english", prefix: true, any_word: true}}
+
+	def self.skill_match(current_user)
+		learn_string = current_user.skills.where("teach = ?", false).pluck(:name).join(" ")
+		users = search(learn_string)
+	end
+
+	def self.skill_recommend(current_user)
+		users = skill_match(current_user)
+		offer_string = current_user.skills.where("teach = ?", true).pluck(:name).join(" ")
+		users.search("prog")
+	end
+
+	def self.skill_search(query, current_user, teach)
 		if query.present?
-			search(query)
-			## This is without the gem
-			# rank = <<-RANK
-			# 	ts_rank(to_tsvector(name), plaintti_tsquery(#{sanitize(query)}))
-			# RANK
-			# where("name @@ :q", q: query)
-			## Old code
-			#find(:all, :conditions => ['name ilike ?', "%#{query}%"])
+			users = search(query)
+			users = users.where("teach = ? and user_id != ?", teach, current_user.id)
+
+			users
 		else
-			find(:all)
+			where("teach = ? and user_id != ?", teach, current_user.id)		
 		end
 	end
 end

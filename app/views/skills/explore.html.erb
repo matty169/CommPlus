@@ -1,0 +1,70 @@
+<div class="navbar">
+  <div class="navbar-inner">
+      <li class = "brand"><%= link_to 'Recommended', recommended_path %></li>
+    <ul class="nav">
+      <li class = "active"><%= link_to 'Explore', explore_path %></li>
+    </ul>
+  </div>
+</div>
+
+<h1>Listing skills</h1>
+
+<%= form_tag explore_path, :method => 'get' do %> <!-- change from post to get -->
+  <p>
+    <%= text_field_tag :query, params[:query] %>  <!-- the params keeps the content in the textfield -->
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<h1>Learn</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Teach</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Numb events</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills_learn.each do |skill| %>
+      <tr>
+        <td><%= skill.teach %></td>
+        <td><%= skill.name %></td>
+        <td><%= skill.description %></td>
+        <td><%= skill.numb_events %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Share</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teach</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Numb events</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills_offer.each do |skill| %>
+      <tr>
+        <td><%= skill.teach %></td>
+        <td><%= skill.name %></td>
+        <td><%= skill.description %></td>
+        <td><%= skill.numb_events %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

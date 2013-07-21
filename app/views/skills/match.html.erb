@@ -1,0 +1,36 @@
+<div class="navbar">
+  <div class="navbar-inner">
+      <li class = "brand active"><%= link_to 'Recommended', recommended_path %></li>
+    <ul class="nav">
+      <li><%= link_to 'Explore', explore_path %></li>
+    </ul>
+  </div>
+</div>
+
+<h1>Recommended</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teach</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Numb events</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills_learn.each do |skill| %>
+      <tr>
+        <td><%= skill.teach %></td>
+        <td><%= skill.name %></td>
+        <td><%= skill.description %></td>
+        <td><%= skill.numb_events %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -3,11 +3,20 @@ class SkillsController < ApplicationController
   before_filter :authenticate_user!
    
 
+
+  def match
+    @skills_learn = Skill.skill_recommend(current_user)
+  end
+
+  def explore
+    @skills_offer = Skill.skill_search(params[:query], current_user, false)
+    @skills_learn = Skill.skill_search(params[:query], current_user, true)
+  end
+
   # GET /skills
   # GET /skills.json
   def index
-    #@skills = Skill.all
-    @skills = Skill.text_search(params[:query])
+    @skills = Skill.all
   end
 
   # GET /skills/1
@@ -64,6 +73,9 @@ class SkillsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

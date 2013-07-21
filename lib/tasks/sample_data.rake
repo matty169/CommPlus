@@ -26,6 +26,15 @@ namespace :db do
     ruby_atendees = Attendee.create!(event_id: ruby.id, user_id: matthew.id, skill_id: program.id)
     hackathon_atendees = Attendee.create!(event_id: hack.id, user_id: matthew.id, skill_id: parkour.id)
 
+    merelda = User.create!(email: "mereldawu@gmail.com", password: "password", password_confirmation: "password")
+    merelda.update(name: "Merela Wu", description: "I love cheesecake")
+    merelda.skills.create!(teach: true, name: "programming", description: "i love to code")
+
+    james = User.create!(email: "james@gmail.com", password: "password", password_confirmation: 
+    james.update(name: "James Allingham", description: "I love cheesecake")
+    james.skills.create!(teach: true, name: "programming", description: "i love to code")
+    james.skills.create!(teach: false, name: "Parkour", description: "If only I had the time")
+
     10.times do |n|
 
       # Creating a User called Dummy
