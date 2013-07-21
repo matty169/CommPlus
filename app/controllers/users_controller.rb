@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   
   def index
-    @users = User.all
+    @users = User.all   # the sort works.
   end
 
   # GET /users/1
