@@ -2,7 +2,7 @@
 
 <%= form_tag skills_path, :method => 'get' do %> <!-- change from post to get -->
   <p>
-    <%= text_field_tag :search, params[:search] %>  <!-- the params keeps the content in the textfield -->
+    <%= text_field_tag :query, params[:query] %>  <!-- the params keeps the content in the textfield -->
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>

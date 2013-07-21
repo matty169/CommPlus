@@ -8,6 +8,7 @@ development:
   encoding: unicode
   database: community_development
   pool: 5
+  host: localhost
   username:
   password:
 
@@ -19,6 +20,7 @@ test:
   encoding: unicode
   database: community_test
   pool: 5
+  host: localhost
   username:
   password:
 

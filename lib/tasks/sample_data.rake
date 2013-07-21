@@ -15,6 +15,9 @@ namespace :db do
 
 
     parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
+    parkour.tags.create!(name: "one")
+    parkour.tags.create!(name: "two")
+    parkour.tags.create!(name: "three")
     program = Skill.create!(user_id: matthew.id, teach: false, name: "Programming", description: "Ruby on rails is difficult")
 
     hack = Event.create!(name: "Hackathon", location: "Wits", description: "This is going to be a long weeked")

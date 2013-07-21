@@ -12,6 +12,8 @@ gem 'pg'
 # It is working but there is no imagemagic to transform the data. And no default picture.
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
+gem 'pg_search'
+
 
 group :development do
 # Use sqlite3 as the database for Active Record

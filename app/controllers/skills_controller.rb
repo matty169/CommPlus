@@ -7,7 +7,7 @@ class SkillsController < ApplicationController
   # GET /skills.json
   def index
     #@skills = Skill.all
-    @skills = Skill.search(params[:search])
+    @skills = Skill.text_search(params[:query])
   end
 
   # GET /skills/1
