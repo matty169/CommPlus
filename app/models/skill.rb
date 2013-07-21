@@ -17,4 +17,12 @@ class Skill < ActiveRecord::Base
 	has_many :attendees
 	has_many :events, :through => :attendee
 	has_many :tags, :as => :tagable
+
+	def self.search(search)
+		if search
+			find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+		else
+			find(:all)
+		end
+	end
 end
