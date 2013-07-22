@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20130719221112) do
     t.time     "time"
     t.string   "location"
     t.string   "description"
+    t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"

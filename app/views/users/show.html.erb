@@ -38,6 +38,11 @@
   <%= @user.rating %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= @user.photo_url %>
+</p>
+
 
 <% if can? :manage, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %>

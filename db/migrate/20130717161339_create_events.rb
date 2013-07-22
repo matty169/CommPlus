@@ -6,6 +6,8 @@ class CreateEvents < ActiveRecord::Migration
       t.time :time
       t.string :location
       t.string :description
+      #t.integer :host     # this is the person who created the event
+      t.string :photo_url
 
       t.timestamps
     end
