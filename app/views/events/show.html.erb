@@ -27,6 +27,11 @@
   <%= @event.description %>
 </p>
 
+<p>
+  <strong>Phot:</strong>
+  <%= @event.photo_url %>
+</p>
+
 <% @event.attendees.each do |attendee| %>
 <% if can? :manage, attendee.user %>
   <%= link_to 'Edit', edit_event_path(@event) %>
