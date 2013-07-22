@@ -28,8 +28,13 @@
 </p>
 
 <p>
-  <strong>Phot:</strong>
+  <strong>Photo</strong>
   <%= @event.photo_url %>
+</p>
+
+<p>
+  <strong>Status</strong>
+  <%= @event.status %>
 </p>
 
 <% @event.attendees.each do |attendee| %>
