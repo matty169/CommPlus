@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 20130719221112) do
     t.string   "name"
     t.string   "description"
     t.integer  "rating"
+    t.string   "photo_url"
+    t.boolean  "is_male"
+    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false

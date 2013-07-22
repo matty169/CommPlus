@@ -5,7 +5,7 @@ class SkillsController < ApplicationController
 
 
   def match
-    @skills_learn = Skill.skill_recommend(current_user)
+    @skills_learn = Skill.skill_match(current_user)
   end
 
   def explore
