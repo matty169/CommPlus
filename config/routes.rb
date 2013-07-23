@@ -21,6 +21,12 @@ CommPlus::Application.routes.draw do
     resources :events, only: [:index, :show, :create, :update, :destroy]
     resources :skills, only: [:index, :show, :create, :update, :destroy]
     resources :attendees, only: [:create, :destroy]
+
+    devise_scope :user do
+      post 'registrations' => 'registrations#create', :as => 'register'
+      post 'sessions' => 'sessions#create', :as => 'login'
+      delete 'sessions' => 'sessions#destroy', :as => 'logout'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
