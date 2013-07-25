@@ -1,3 +1,5 @@
+# export http_proxy='http://students\379899:379899matty@proxyss.wits.ac.za:80/'
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: s'rails/rails'

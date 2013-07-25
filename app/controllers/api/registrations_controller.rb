@@ -1,3 +1,5 @@
+
+# Registration
 # curl -v -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://localhost:3000/api/registrations -d "{\"user\":{\"email\":\"user1@example.com\",\"name\":\"anotheruser\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}}"
 
 

@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 	has_many :attendees
 	has_many :events, :through => :attendees
 	has_many :tags, :as => :tagable
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/Communityplus_:style.png"
 
 	before_save :ensure_authentication_token
 

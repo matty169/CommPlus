@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Info</h1>
 
- <%= image_tag @event.photo.url %>
+ <%= image_tag @event.photo.url(:medium) %>
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -42,6 +42,8 @@
   <%= link_to 'Edit', edit_event_path(@event) %>
   <% break %>
 <% end %>
+
+
 <% end %>
 
 
