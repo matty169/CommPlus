@@ -5,6 +5,8 @@ class Api::SessionsController < Devise::SessionsController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
+  http_basic_authenticate_with :name => "android", :password => "1234"
+
   respond_to :json
 
   def create
