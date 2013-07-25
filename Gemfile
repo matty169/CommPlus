@@ -9,6 +9,7 @@ gem 'devise'		# only simple setup. Need to add data validation in models too.
 gem "cancan"		# only superficially in the views, not the controllers.
 #gem "jqcloud-rails"			# not implemented anymore.
 gem 'pg'
+gem "taps"
 
 # It is working but there is no imagemagic to transform the data. And no default picture.
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
