@@ -58,7 +58,7 @@
 
     # Create Merelda
     merelda = User.create!(email: "mereldawu@gmail.com", password: "password", password_confirmation: "password")
-    merelda.update(name: "Merelda Wu", description: "I love cheesecake", is_male: false, location: "Edenvale, JHB", photo_url: "http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/2175_63289166659_1264_n.jpg")
+    merelda.update(name: "Merelda Wu", description: "I love cheesecake", is_male: false, location: "Edenvale, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash3/c50.194.608.608/s160x160/522558_10151112223026330_1472903822_n.jpg")
     merelda.tags.create!(name: "Passionate")
     merelda.tags.create!(name: "iNspiration")
     merelda.tags.create!(name: "Parkour")
