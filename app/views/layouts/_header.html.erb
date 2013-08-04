@@ -15,6 +15,7 @@
                <li><%= link_to 'Sign out', destroy_user_session_path %></li>
             <% else%>
                <li> <%= link_to 'Sign in', new_user_session_path %></li>
+               <li> <%= link_to 'Sign Twitter', user_omniauth_authorize_path(:twitter) %></li>
             <% end%>
         </ul>
 

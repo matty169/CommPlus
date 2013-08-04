@@ -19,6 +19,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'pg_search'
 
 gem 'rails_12factor'
+gem 'omniauth-twitter'
 
 
 group :development do

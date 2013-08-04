@@ -1,7 +1,7 @@
 CommPlus::Application.routes.draw do
   resources :tags
 
-  devise_for :users 
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"} 
   resources :attendees
 
   resources :events

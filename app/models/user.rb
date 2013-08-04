@@ -11,12 +11,9 @@
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable
+         :token_authenticatable, :omniauthable, :omniauth_providers => [:twitter]
 	has_many :skills
 	has_many :attendees
 	has_many :events, :through => :attendees
@@ -37,5 +34,32 @@ class User < ActiveRecord::Base
 
 		skill_search(skills_learn)
 	end
+
+	# Only twitter is set up at the moment
+	def self.from_omniauth(auth)
+		where(auth.slice(:provider,:uid)).first_or_create do |user|
+			user.provider = auth.provider
+			user.uid = auth.uid
+			user.email = auth.info.email
+			user.name = auth.info.name			# Save the Name.
+			user.photo = auth.info.image		# Save the profile picture too.
+		end
+	end
+
+	def self.new_with_session(params, session)
+		if session["devise.user_attributes"]
+			new(session["devise.user_attributes"]) do |user|
+				user.attributes = params
+				user.valid?
+			end
+		else
+			super
+		end
+	end
+
+	def password_required?
+		super && provider.blank?
+	end
+
 
 end
