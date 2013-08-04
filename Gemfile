@@ -22,6 +22,13 @@ gem 'rails_12factor'
 gem 'omniauth-twitter'
 
 
+# I love the community. Just copy paste code, not sure how it all works.
+gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'
+gem 'ransack',             github: 'ernie/ransack',         branch: 'rails-4'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'formtastic',          github: 'justinfrench/formtastic'
+
+
 group :development do
 # Use sqlite3 as the database for Active Record
 gem 'annotate'
