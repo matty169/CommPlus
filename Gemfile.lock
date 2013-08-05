@@ -85,6 +85,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (4.0.0)
     atomic (1.1.10)
+    aws_cf_signer (0.1.1)
     bcrypt-ruby (3.1.1)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
@@ -93,8 +94,15 @@ GEM
       thor
     builder (3.1.4)
     cancan (1.6.10)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    cloudinary (1.0.62)
+      aws_cf_signer
+      rest-client
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.0)
@@ -236,6 +244,8 @@ DEPENDENCIES
   annotate
   bootstrap-sass (~> 2.3.2.0)
   cancan
+  carrierwave
+  cloudinary
   coffee-rails (~> 4.0.0)
   devise
   faker

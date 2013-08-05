@@ -1,0 +1,10 @@
+# config/cloudinary.yml
+development:
+  cloud_name: "communityplus"
+  api_key: "548123524569843"
+  api_secret: "CaPpbtd67Im-i5GQ3EMoI2IgVNo"
+
+production:
+  cloud_name: "communityplus"
+  api_key: "548123524569843"
+  api_secret: "CaPpbtd67Im-i5GQ3EMoI2IgVNo"

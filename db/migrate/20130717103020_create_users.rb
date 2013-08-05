@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :rating
-      t.string :photo_url
       t.boolean :is_male
       t.string :location
       t.timestamps

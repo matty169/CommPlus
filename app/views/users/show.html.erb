@@ -1,7 +1,6 @@
 <h1>Info</h1>
 
-<%= image_tag @user.photo.url(:medium)  %>
-
+<% unless @user.photo_url.nil? %><%= image_tag @user.photo_url(:thumbnail) %><br /><% end %>
 
 <p>
   <strong>Name:</strong>
@@ -38,11 +37,6 @@
 <p>
   <strong>Photo:</strong>
   <%= @user.photo_url %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo.url %>
 </p>
 
 

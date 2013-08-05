@@ -4,7 +4,8 @@
 # Examples:
 # Create matthew
     matthew = User.create!(email: "looi.matthew1@gmail.com", password: "password", password_confirmation: "password")
-    matthew.update(name: "Matthew Looi", description: "He loves Simon Sinek", is_male: true, location: "Glenvista, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash4/c76.491.462.462/s160x160/1006183_10151439849650925_172684630_n.jpg")
+    #matthew.update(name: "Matthew Looi", description: "He loves Simon Sinek", is_male: true, location: "Glenvista, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash4/c76.491.462.462/s160x160/1006183_10151439849650925_172684630_n.jpg")
+    matthew.update(name: "Matthew Looi", description: "He loves Simon Sinek", is_male: true, location: "Glenvista, JHB")
     matthew.tags.create!(name: "Passionate")
     matthew.tags.create!(name: "iNspiration")
     matthew.tags.create!(name: "Parkour")
@@ -23,7 +24,8 @@
 
     # Create Jack
     jack = User.create!(email: "jacktalo0@gmail.com", password: "password", password_confirmation: "password")
-    jack.update(name: "Jackline Atsango", description: "I love cheesecake", is_male: false, location: "Northcliff, JHB", photo_url: "http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/2175_63289166659_1264_n.jpg")
+    #jack.update(name: "Jackline Atsango", description: "I love cheesecake", is_male: false, location: "Northcliff, JHB", photo_url: "http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash4/2175_63289166659_1264_n.jpg")
+    jack.update(name: "Jackline Atsango", description: "I love cheesecake", is_male: false, location: "Northcliff, JHB")
     jack.tags.create!(name: "Passionate")
     jack.tags.create!(name: "iNspiration")
     jack.tags.create!(name: "Parkour")
@@ -41,7 +43,8 @@
 
     #Create James
     james = User.create!(email: "james@gmail.com", password: "password", password_confirmation: "password")
-    james.update(name: "James Allingham", description: "I love cheesecake", is_male: true, location: "Parkview, JHB", photo_url: "http://aiti.mit.edu/media/cache/94/4b/944b049123db55195de6c5e3d87f2ae9.jpg")
+    #james.update(name: "James Allingham", description: "I love cheesecake", is_male: true, location: "Parkview, JHB", photo_url: "http://aiti.mit.edu/media/cache/94/4b/944b049123db55195de6c5e3d87f2ae9.jpg")
+    james.update(name: "James Allingham", description: "I love cheesecake", is_male: true, location: "Parkview, JHB")
     james.tags.create!(name: "Passionate")
     james.tags.create!(name: "iNspiration")
     james.tags.create!(name: "Parkour")
@@ -58,7 +61,8 @@
 
     # Create Merelda
     merelda = User.create!(email: "mereldawu@gmail.com", password: "password", password_confirmation: "password")
-    merelda.update(name: "Merelda Wu", description: "I love cheesecake", is_male: false, location: "Edenvale, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash3/c50.194.608.608/s160x160/522558_10151112223026330_1472903822_n.jpg")
+    #merelda.update(name: "Merelda Wu", description: "I love cheesecake", is_male: false, location: "Edenvale, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash3/c50.194.608.608/s160x160/522558_10151112223026330_1472903822_n.jpg")
+    merelda.update(name: "Merelda Wu", description: "I love cheesecake", is_male: false, location: "Edenvale, JHB")
     merelda.tags.create!(name: "Passionate")
     merelda.tags.create!(name: "iNspiration")
     merelda.tags.create!(name: "Parkour")
@@ -75,7 +79,8 @@
 
     # Create Zah
     zah = User.create!(email: "zah@gmail.com", password: "password", password_confirmation: "password")
-    zah.update(name: "Zahira Bhumjee", description: "I love cheesecake", is_male: false, location: "Kylami, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-frc3/c44.44.552.552/s160x160/1011307_10152961840670082_1660923073_n.jpg")
+    #zah.update(name: "Zahira Bhumjee", description: "I love cheesecake", is_male: false, location: "Kylami, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-frc3/c44.44.552.552/s160x160/1011307_10152961840670082_1660923073_n.jpg")
+    zah.update(name: "Zahira Bhumjee", description: "I love cheesecake", is_male: false, location: "Kylami, JHB")
     zah.tags.create!(name: "Passionate")
     zah.tags.create!(name: "iNspiration")
     zah.tags.create!(name: "Parkour")
@@ -92,7 +97,8 @@
 
     # Create Robert
     robert = User.create!(email: "robertlouw@gmail.com", password: "password", password_confirmation: "password")
-    robert.update(name: "Robert Louw", description: "I love cheesecake", is_male: true, location: "Linded, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash4/c36.36.447.447/s160x160/1004596_599462753418308_108864779_n.jpg")
+    #robert.update(name: "Robert Louw", description: "I love cheesecake", is_male: true, location: "Linded, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-ash4/c36.36.447.447/s160x160/1004596_599462753418308_108864779_n.jpg")
+    robert.update(name: "Robert Louw", description: "I love cheesecake", is_male: true, location: "Linded, JHB")
     robert.tags.create!(name: "Passionate")
     robert.tags.create!(name: "iNspiration")
     robert.tags.create!(name: "Parkour")
@@ -109,7 +115,8 @@
 
     # Create Matt
     matt = User.create!(email: "mat@gmail.com", password: "password", password_confirmation: "password")
-    matt.update(name: "Matt McAfee", description: "I love cheesecake", is_male: true, location: "Sandton, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-prn2/c83.30.371.371/s160x160/168257_10151485256129818_1098145458_n.jpg")
+    #matt.update(name: "Matt McAfee", description: "I love cheesecake", is_male: true, location: "Sandton, JHB", photo_url: "http://profile.ak.fbcdn.net/hprofile-ak-prn2/c83.30.371.371/s160x160/168257_10151485256129818_1098145458_n.jpg")
+    matt.update(name: "Matt McAfee", description: "I love cheesecake", is_male: true, location: "Sandton, JHB")
     matt.tags.create!(name: "Passionate")
     matt.tags.create!(name: "iNspiration")
     matt.tags.create!(name: "Parkour")
@@ -128,14 +135,14 @@
 
     # Create Events
 
-    hack = Event.create!(name: "Hackathon", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "Insane Coding, No sleep, Its hardcore.", photo_url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSQR71HEKbVeGmfi-Ddy9LJFdXSFkaMjEgE8GIFor_3net_7s9SyQ", host_id: matthew.id)
-    ruby = Event.create!(name: "Ruby Lesson", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "From beginners to experts. Love Ruby and its simplicity.", photo_url: " http://www.firstlinesoftware.com/wp-content/uploads/2013/03/ruby-vs-php.jpg", host_id: matthew.id)
-    parkoursaterday = Event.create!(name: "Parkour Intro", location: "Wits Red Brick", date: "2013-07-29", time: "12:00", description: "Try something new! Learn the art of movement.", photo_url: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvrhE_fJWTZfEBwEzlRt96DlFCs3285jKJpgGBioposGJ5SF0", host_id: matthew.id)
-    bakeaway = Event.create!(name: "Macaroon Baking", location: "Robs House", date: "2013-07-29", time: "12:00", description: "Macaroons! and finding your way around the kitchen.", photo_url: "http://distilleryimage0.ak.instagram.com/9e4850a2d5d011e2939b22000a1f9251_7.jpg", host_id: matthew.id)
-    codencofee = Event.create!(name: "Code n Coffee", location: "Mug n Bean", date: "2013-07-29", time: "12:00", description: "Social in the beginning, then straight to some code.", photo_url: "http://www-andrewspittle-net.zippykid.netdna-cdn.com/wp-content/uploads/2013/02/coffee-and-code-1200x803.jpg", host_id: matthew.id)
-    tennis = Event.create!(name: "Tennis Lessons", location: "Wits Tennis Courts", date: "2013-07-29", time: "12:00", description: "Perfect your skills this weekend with Ronnie Clark.", photo_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR-SiaYEftSy9JeGhb7TUO0fag5XMFxx80-CACg5K4sNJXidfKvSg", host_id: matthew.id)
-    yoga = Event.create!(name: "Fun in the Sun Yoga", location: "Wits", date: "2013-07-29", time: "12:00", description: "Stop and enjoy the moment. Be part of yoga class this weekend.", photo_url: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQPKEhp1rdR0ZkUXOpO8doIXoXiMOrDkFTWQTyjz6M4Iy0q1Gtseg", host_id: matthew.id)
-    demoday = Event.create!(name: "MIT Demo Day", location: "Wits, Alumni House", date: "2013-07-29", time: "12:00", description: "The showcase of Wits' best students.", photo_url: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTRst7sKKANLkoXQrp9Xoeej7u9sSe_iY8NuC-Pd8a4CUGK8Rql", host_id: matthew.id)
+    hack = Event.create!(name: "Hackathon", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "Insane Coding, No sleep, Its hardcore.", host_id: matthew.id)
+    ruby = Event.create!(name: "Ruby Lesson", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "From beginners to experts. Love Ruby and its simplicity.", host_id: matthew.id)
+    parkoursaterday = Event.create!(name: "Parkour Intro", location: "Wits Red Brick", date: "2013-07-29", time: "12:00", description: "Try something new! Learn the art of movement.", host_id: matthew.id)
+    bakeaway = Event.create!(name: "Macaroon Baking", location: "Robs House", date: "2013-07-29", time: "12:00", description: "Macaroons! and finding your way around the kitchen.", host_id: matthew.id)
+    codencofee = Event.create!(name: "Code n Coffee", location: "Mug n Bean", date: "2013-07-29", time: "12:00", description: "Social in the beginning, then straight to some code.", host_id: matthew.id)
+    tennis = Event.create!(name: "Tennis Lessons", location: "Wits Tennis Courts", date: "2013-07-29", time: "12:00", description: "Perfect your skills this weekend with Ronnie Clark.", host_id: matthew.id)
+    yoga = Event.create!(name: "Fun in the Sun Yoga", location: "Wits", date: "2013-07-29", time: "12:00", description: "Stop and enjoy the moment. Be part of yoga class this weekend.", host_id: matthew.id)
+    demoday = Event.create!(name: "MIT Demo Day", location: "Wits, Alumni House", date: "2013-07-29", time: "12:00", description: "The showcase of Wits' best students.", host_id: matthew.id)
 
     # Create Attendees # have not implemmented skill_id properly
     Attendee.create!(event_id: hack.id, user_id: matthew.id, skill_id: program.id)

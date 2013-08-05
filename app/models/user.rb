@@ -16,11 +16,12 @@ class User < ActiveRecord::Base
          :token_authenticatable, :omniauthable, :omniauth_providers => [:twitter]
 	has_many :skills
 	has_many :attendees
-	has_many :events, :through => :attendees
+	has_many :events, :through => :attendeesz
 	has_many :tags, :as => :tagable
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/Communityplus_:style.png"
 
 	before_save :ensure_authentication_token
+
+	mount_uploader :photo, PhotoUploader
 
 	include PgSearch
 

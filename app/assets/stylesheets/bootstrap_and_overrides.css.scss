@@ -103,9 +103,9 @@ footer {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 50px solid $blue;
+    border-top: 5px solid $grayLighter;
     &:last-child {
-      border-bottom: 50px solid $grayLighter;
+      border-bottom: 5px solid $grayLighter;
     }
   }
 }

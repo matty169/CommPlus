@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130804212240) do
+ActiveRecord::Schema.define(version: 20130805194325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,10 +68,6 @@ ActiveRecord::Schema.define(version: 20130804212240) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
   end
 
   create_table "skills", force: true do |t|
@@ -96,7 +92,6 @@ ActiveRecord::Schema.define(version: 20130804212240) do
     t.string   "name"
     t.string   "description"
     t.integer  "rating"
-    t.string   "photo_url"
     t.boolean  "is_male"
     t.string   "location"
     t.datetime "created_at"
@@ -118,10 +113,7 @@ ActiveRecord::Schema.define(version: 20130804212240) do
     t.string   "authentication_token"
     t.string   "provider"
     t.string   "uid"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string   "photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
