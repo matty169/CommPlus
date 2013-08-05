@@ -13,10 +13,18 @@ CommPlus::Application.routes.draw do
 
   resources :skills
 
-  #get "/home", to: 'static_pages#home'
   get "/about", to: 'static_pages#about'
-  root to: 'static_pages#home'
+
+
+  # Alter the root directory if the user is signed in or not.
+  authenticated :user do
+    get "/" => "skills#index"
+  end
+    root :to => "static_pages#home"
+
+
   resources :users
+
 
   get "/recommended", to: 'skills#match'
   get "/explore", to: 'skills#explore'

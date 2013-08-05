@@ -95,3 +95,17 @@ footer {
     }
   }
 }
+
+.skills {
+  background-color: #CCC;
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 50px solid $blue;
+    &:last-child {
+      border-bottom: 50px solid $grayLighter;
+    }
+  }
+}
