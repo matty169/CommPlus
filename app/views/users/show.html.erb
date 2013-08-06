@@ -1,6 +1,6 @@
 <h1>Info</h1>
 
-<% unless @user.photo_url.nil? %><%= image_tag @user.photo_url(:thumbnail) %><br /><% end %>
+<%= image_tag(@user.photo_url, :width => 300, :height => 300) %>
 
 <p>
   <strong>Name:</strong>
@@ -29,16 +29,10 @@
 
 
 
-<p>
+<!-- <p>
   <strong>Rating:</strong>
   <%= @user.rating %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo_url %>
-</p>
-
+</p> -->
 
 <% if can? :manage, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %>
@@ -65,8 +59,10 @@
         <td><%= skill.description %></td>
         <td><%= skill.numb_events %></td>
         <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if can? :manage, @user %>
+                  <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+                  <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -161,8 +157,3 @@
     <% end %>
   </tbody>
 </table>
-
-
-
-
-<%= link_to 'Back', users_path %>

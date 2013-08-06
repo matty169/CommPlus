@@ -7,6 +7,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
 
+  def default_url
+    "http://res.cloudinary.com/communityplus/image/upload/v1375733966/Community_Logo_ke5hll.png"
+  end
+
   # Choose what kind of storage to use for this uploader:
   #storage :file
   # storage :fog
@@ -49,14 +53,14 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  version :display do
+  version :profile do
     process :eager => true
-    process :resize_to_fill => [200, 200, :north]
+    process :resize_to_fill => [300, 300, :north]
   end
 
   version :thumbnail do
     process :eager => true
-    process :resize_to_fit => [100, 100]
+    process :resize_to_fit => [150, 150]
   end
 
 end

@@ -11,15 +11,19 @@
 #
 
 class User < ActiveRecord::Base
+	validates	:name, presence: true, length: {in: 3..25}
+	validates 	:description, length: {maximum: 255}
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable, :omniauthable, :omniauth_providers => [:twitter]
 	has_many :skills
 	has_many :attendees
-	has_many :events, :through => :attendeesz
+	has_many :events, :through => :attendees
 	has_many :tags, :as => :tagable
 
-	before_save :ensure_authentication_token
+	before_save :ensure_authentication_token # Im not sure what this does anymore.
 
 	mount_uploader :photo, PhotoUploader
 
