@@ -1,15 +1,4 @@
-<%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@user, :html => { :multipart => true } ) do |f| %>
 
   <div class="field">
     <%= f.label :name %><br>
@@ -23,8 +12,21 @@
 
   <%= f.file_field :photo %>
   <%= f.hidden_field :photo_cache %>
-  
+
+  <h2> Teach Skills </h2>
+  <%= f.fields_for :skills, @user.skills.where(teach: true) do |f| %>
+    <%= render '/forms/skill_fields', f: f, dumy: true %>
+  <% end %>
+  <%= link_to_add_fields "Add Teach Skill", f, :skills, true %>
+
+  <h2> Learn Skills </h2>
+  <%= f.fields_for :skills, @user.skills.where(teach: false) do |f| %>    
+    <%= render '/forms/skill_fields', f: f , dumy: false  %>
+  <% end %>
+  <%= link_to_add_fields "Add Learn Skill", f, :skills, false %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

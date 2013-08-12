@@ -13,6 +13,7 @@
 //= require d3.v3
 //= require jquery
 //= require jquery_ujs
+//= require jquery.nested-fields
 //= require turbolinks
 //= require bootstrap
 //= require_tree .

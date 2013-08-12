@@ -12,6 +12,7 @@ gem "cancan"		# only superficially in the views, not the controllers.
 #gem "jqcloud-rails"			# not implemented anymore.
 gem 'pg'
 gem "taps"
+gem 'rspec-rails'
 
 # It is working but there is no imagemagic to transform the data. And no default picture.
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
@@ -20,6 +21,7 @@ gem 'pg_search'
 
 gem 'rails_12factor'
 gem 'omniauth-twitter'
+gem 'awesome_nested_fields'
 
 
 # I love the community. Just copy paste code, not sure how it all works.

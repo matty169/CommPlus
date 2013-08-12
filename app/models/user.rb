@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 	has_many :attendees
 	has_many :events, :through => :attendees
 	has_many :tags, :as => :tagable
+	accepts_nested_attributes_for :skills, allow_destroy: true
 
 	before_save :ensure_authentication_token # Im not sure what this does anymore.
 

@@ -1,8 +1,4 @@
-
-
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-
-	<div class="row">
+<div class="row">
 		<div class="span6">
   			<h1>Sign up</h1>	
   			<%= f.input :email, :autofocus => true  %>
@@ -55,5 +51,3 @@
 
 
   	<%= f.button :submit %>
-
-<% end %>
