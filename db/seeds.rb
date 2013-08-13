@@ -14,12 +14,12 @@
     matthew.tags.create!(name: "Dreamer")
     matthew.tags.create!(name: "Like Always")
 
-    parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall")
-    matthew.skills.create!(teach: true, name: "Squash", description: "Hay there I need to run up a wall")
-    program = matthew.skills.create!(teach: true, name: "Ruby on Rails", description: "Hay there I need to run up a wall")
-    matthew.skills.create!(teach: false, name: "Android", description: "Hay there I need to run up a wall")
-    matthew.skills.create!(teach: false, name: "Mandarin", description: "Hay there I need to run up a wall")
-    matthew.skills.create!(teach: false, name: "Ruby on Rails", description: "Hay there I need to run up a wall")
+    parkour = matthew.skills.create!(teach: true, name: "Parkour", description: "Hay there I need to run up a wall", numb_events: 15)
+    matthew.skills.create!(teach: true, name: "Squash", description: "Hay there I need to run up a wall", numb_events: 10)
+    program = matthew.skills.create!(teach: true, name: "Ruby on Rails", description: "Hay there I need to run up a wall", numb_events: 7)
+    matthew.skills.create!(teach: false, name: "Android", description: "Hay there I need to run up a wall", numb_events: 5)
+    matthew.skills.create!(teach: false, name: "Mandarin", description: "Hay there I need to run up a wall", numb_events: 12)
+    matthew.skills.create!(teach: false, name: "Ruby on Rails", description: "Hay there I need to run up a wall", numb_events: 3)
 
 
     # Create Jack

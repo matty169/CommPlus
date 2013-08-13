@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            User 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/user_rb.html">app/models/user.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: users</p>
+
+<pre>id                     :integer          not null, primary key
+name                   :string(255)
+description            :string(255)
+rating                 :integer          default(0)
+is_male                :boolean          default(TRUE)
+location               :string(255)
+created_at             :datetime
+updated_at             :datetime
+email                  :string(255)      default(&quot;&quot;), not null
+encrypted_password     :string(255)      default(&quot;&quot;), not null
+reset_password_token   :string(255)
+reset_password_sent_at :datetime
+remember_created_at    :datetime
+sign_in_count          :integer          default(0)
+current_sign_in_at     :datetime
+last_sign_in_at        :datetime
+current_sign_in_ip     :string(255)
+last_sign_in_ip        :string(255)
+confirmation_token     :string(255)
+confirmed_at           :datetime
+confirmation_sent_at   :datetime
+unconfirmed_email      :string(255)
+authentication_token   :string(255)
+provider               :string(255)
+uid                    :string(255)
+photo                  :string(255)</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-from_omniauth">from_omniauth</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new_with_session">new_with_session</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-password_required-3F">password_required?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-skill_match">skill_match</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            PgSearch
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-from_omniauth">
+            
+              <b>from_omniauth</b>(auth)
+            
+            <a href="../classes/User.html#method-c-from_omniauth" name="method-c-from_omniauth" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Only twitter is set up at the moment</p>
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-from_omniauth_source')" id="l_method-c-from_omniauth_source">show</a>
+                
+              </p>
+              <div id="method-c-from_omniauth_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">from_omniauth</span>(<span class="ruby-identifier">auth</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">:provider</span>,<span class="ruby-value">:uid</span>)).<span class="ruby-identifier">first_or_create</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">provider</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provider</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">uid</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">uid</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">email</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">name</span>      <span class="ruby-comment"># Save the Name.</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">photo</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">image</span>    <span class="ruby-comment"># Save the profile picture too.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new_with_session">
+            
+              <b>new_with_session</b>(params, session)
+            
+            <a href="../classes/User.html#method-c-new_with_session" name="method-c-new_with_session" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_with_session_source')" id="l_method-c-new_with_session_source">show</a>
+                
+              </p>
+              <div id="method-c-new_with_session_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">new_with_session</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">session</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-string">&quot;devise.user_attributes&quot;</span>]
+    <span class="ruby-identifier">new</span>(<span class="ruby-identifier">session</span>[<span class="ruby-string">&quot;devise.user_attributes&quot;</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">user</span>.<span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">params</span>
+      <span class="ruby-identifier">user</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-skill_match">
+            
+              <b>skill_match</b>(current_user)
+            
+            <a href="../classes/User.html#method-c-skill_match" name="method-c-skill_match" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-skill_match_source')" id="l_method-c-skill_match_source">show</a>
+                
+              </p>
+              <div id="method-c-skill_match_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">skill_match</span>(<span class="ruby-identifier">current_user</span>)
+  <span class="ruby-comment"># Create a string of all the skills.</span>
+  <span class="ruby-identifier">skills_learn</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">skills</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">teach</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:name</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-comment">#skills_learn = current_user.skills.pluck(:name).join(&quot; &quot;)</span>
+
+  <span class="ruby-identifier">skill_search</span>(<span class="ruby-identifier">skills_learn</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-password_required-3F">
+            
+              <b>password_required?</b>()
+            
+            <a href="../classes/User.html#method-i-password_required-3F" name="method-i-password_required-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-password_required-3F_source')" id="l_method-i-password_required-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-password_required-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/user.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">password_required?</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">blank?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

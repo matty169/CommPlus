@@ -10,10 +10,8 @@ html {
 
 body {
   padding-top: 60px;
-  background-color: $grayDark;
   background-image:url('Background.png');
-  background-repeat:repeat-y;
-  background-repeat:repeat-x;
+  background-color: $grayDark;
   color: $white;    // make all the text set to a default white.
 }
 

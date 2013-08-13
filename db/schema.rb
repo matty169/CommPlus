@@ -58,11 +58,11 @@ ActiveRecord::Schema.define(version: 20130805194325) do
   end
 
   create_table "events", force: true do |t|
-    t.string   "name"
+    t.string   "name",        default: "", null: false
     t.date     "date"
     t.time     "time"
-    t.string   "location"
-    t.string   "description"
+    t.string   "location",    default: "", null: false
+    t.string   "description", default: "", null: false
     t.integer  "host_id"
     t.string   "photo_url"
     t.string   "status"
@@ -71,10 +71,10 @@ ActiveRecord::Schema.define(version: 20130805194325) do
   end
 
   create_table "skills", force: true do |t|
-    t.boolean  "teach"
-    t.string   "name"
-    t.string   "description"
-    t.integer  "numb_events"
+    t.boolean  "teach",       default: false
+    t.string   "name",        default: "",    null: false
+    t.string   "description", default: "",    null: false
+    t.integer  "numb_events", default: 0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -89,15 +89,15 @@ ActiveRecord::Schema.define(version: 20130805194325) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "rating"
-    t.boolean  "is_male"
-    t.string   "location"
+    t.string   "name",                   default: "",   null: false
+    t.string   "description",            default: "",   null: false
+    t.integer  "rating",                 default: 0
+    t.boolean  "is_male",                default: true
+    t.string   "location",               default: "",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

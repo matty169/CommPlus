@@ -4,9 +4,10 @@
 
 
 class Api::RegistrationsController < Devise::RegistrationsController
+
+  http_basic_authenticate_with :name => "android", :password => "1234"
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
-
   respond_to :json
 
   def create

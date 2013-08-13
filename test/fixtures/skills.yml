@@ -3,10 +3,10 @@
 # Table name: skills
 #
 #  id          :integer          not null, primary key
-#  teach       :boolean
-#  name        :string(255)
-#  description :string(255)
-#  numb_events :integer
+#  teach       :boolean          default(FALSE)
+#  name        :string(255)      default(""), not null
+#  description :string(255)      default(""), not null
+#  numb_events :integer          default(0)
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime

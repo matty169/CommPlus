@@ -1,0 +1,55 @@
+{
+  "name": "Matthew Looi",
+  "description": "Loves to learn and explore. We are surrounded by talents and we are really missing out!",
+  "photo_url": "http://res.cloudinary.com/communityplus/image/upload/v1376165134/wckveafv3tvf7fvxalg6.jpg",
+  "location": "Glenvista, JHB",
+  "is_male": true,
+  "skillsOffer": [
+    {
+      "skill_id": 64,
+      "name": "asdasd",
+      "numb_events": null
+    },
+    {
+      "skill_id": 65,
+      "name": "cheese",
+      "numb_events": null
+    }
+  ],
+  "skillsLearn": [
+    {
+      "skill_id": 3,
+      "name": "Ruby on Rails",
+      "numb_events": null
+    },
+    {
+      "skill_id": 1,
+      "name": "Parkour",
+      "numb_events": null
+    },
+    {
+      "skill_id": 2,
+      "name": "Squashs",
+      "numb_events": null
+    },
+    {
+      "skill_id": 6,
+      "name": "Ruby on Rails",
+      "numb_events": null
+    },
+    {
+      "skill_id": 5,
+      "name": "Mandarin",
+      "numb_events": null
+    }
+  ],
+  "word_cloud": [
+    "Passionate",
+    "iNspiration",
+    "Parkour",
+    "Live Life",
+    "Simon Sinek",
+    "Dreamer",
+    "Like Always"
+  ]
+}

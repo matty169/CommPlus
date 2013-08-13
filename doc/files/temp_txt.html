@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>temp.txt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            temp.txt
+        </h1>
+        <ul class="files">
+            <li>temp.txt</li>
+            <li>Last modified: 2013-08-11 10:58:46 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>&lt;div class=“row”&gt;</p>
+
+<pre>        &lt;div class=&quot;span6&quot;&gt;
+                &lt;h1&gt;Sign up&lt;/h1&gt;        
+                &lt;%= f.input :email, :autofocus =&gt; true  %&gt;
+                &lt;%= f.input :password %&gt;
+                &lt;%= f.input :password_confirmation %&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;span6&quot;&gt;
+                &lt;h1&gt;Sign up&lt;/h1&gt;        
+                &lt;%= f.input :email, :autofocus =&gt; true  %&gt;
+                &lt;%= f.input :password %&gt;
+                &lt;%= f.input :password_confirmation %&gt;
+        &lt;/div&gt;
+&lt;/div&gt;  
+
+&lt;hr class = &quot;seperator&quot;&gt;
+&lt;h1&gt;Personal Info&lt;/h1&gt;  
+&lt;div class = &quot;row&quot;&gt;
+        &lt;div class = &quot;span6&quot;&gt;
+                &lt;%= f.input :name %&gt;
+                &lt;%= f.input :description, as: :text %&gt;
+        &lt;/div&gt;
+        &lt;div class = &quot;span6&quot;&gt;
+                &lt;%= f.file_field :photo %&gt;
+                &lt;%= f.hidden_field :photo_cache %&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr class = &quot;seperator&quot;&gt;
+&lt;h1&gt;Skills&lt;/h1&gt; 
+&lt;div class = &quot;row&quot;&gt;
+        &lt;div class = &quot;span6&quot;&gt;
+                &lt;div class=&quot;items&quot;&gt;
+                &lt;%= f.nested_fields_for :skills do |f| %&gt;
+                &lt;fieldset class=&quot;item&quot;&gt;
+                        &lt;%= f.input :name %&gt;
+
+                        &lt;a href=&quot;#&quot; class=&quot;remove&quot;&gt;remove&lt;/a&gt;
+
+                        &lt;%= f.hidden_field :id %&gt;
+                        &lt;%= f.hidden_field :_destroy %&gt;
+                &lt;/fieldset&gt;
+                &lt;% end %&gt;
+                &lt;/div&gt;
+                &lt;a href=&quot;#&quot; class=&quot;add&quot;&gt;add skill&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class = &quot;span6&quot;&gt;
+
+        &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;%= f.button :submit %&gt;</pre>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

@@ -1,7 +1,12 @@
 class Api::EventsController < ApplicationController
-	before_action :set_event, only: [:show, :edit, :update, :destroy]
+
   http_basic_authenticate_with :name => "android", :password => "1234"
-    skip_before_filter :verify_authenticity_token
+  before_action :set_event, only: [:show, :update, :destroy]
+	skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
+
+  respond_to :json
+
 
   # GET /events
   # GET /events.json
@@ -19,28 +24,31 @@ class Api::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @event }
+         render :status => 200,
+           :json => { :success => true,
+                      :info => "Event Created",
+                      :data => {} }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        render :status => :unprocessable_entity,
+             :json => { :success => false,
+                        :info => resource.errors,
+                        :data => {} }
     end
   end
 
-  # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
+        render :status => 200,
+           :json => { :success => true,
+                      :info => "Event Updated",
+                      :data => {} }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        render :status => :unprocessable_entity,
+             :json => { :success => false,
+                        :info => resource.errors,
+                        :data => {} }
     end
   end
 
@@ -48,10 +56,10 @@ class Api::EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
-    end
+    render :status => 200,
+           :json => { :success => true,
+                      :info => "Event Destroyed",
+                      :data => {} }
   end
 
   private

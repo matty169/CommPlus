@@ -3,12 +3,14 @@
 # Table name: events
 #
 #  id          :integer          not null, primary key
-#  name        :string(255)
+#  name        :string(255)      default(""), not null
 #  date        :date
 #  time        :time
-#  location    :string(255)
-#  description :string(255)
-#  attendee_id :integer
+#  location    :string(255)      default(""), not null
+#  description :string(255)      default(""), not null
+#  host_id     :integer
+#  photo_url   :string(255)
+#  status      :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
 #

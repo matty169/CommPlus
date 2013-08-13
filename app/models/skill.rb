@@ -3,10 +3,10 @@
 # Table name: skills
 #
 #  id          :integer          not null, primary key
-#  teach       :boolean
-#  name        :string(255)
-#  description :string(255)
-#  numb_events :integer
+#  teach       :boolean          default(FALSE)
+#  name        :string(255)      default(""), not null
+#  description :string(255)      default(""), not null
+#  numb_events :integer          default(0)
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
@@ -14,9 +14,14 @@
 
 class Skill < ActiveRecord::Base
 	belongs_to :user
-	has_many :attendees
+	has_many :attendees, dependent: :destroy
 	has_many :events, :through => :attendee
-	has_many :tags, :as => :tagable
+	has_many :tags, :as => :tagable, dependent: :destroy
+
+	validates :name, presence: true, length: {maximum: 25}
+	validates :description, length: {maximum: 255}
+
+	default_scope order: 'skills.name ASC'
 
 	include PgSearch
 	# add some weightings.
