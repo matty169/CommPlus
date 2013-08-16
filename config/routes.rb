@@ -1,5 +1,5 @@
 CommPlus::Application.routes.draw do
-
+  post "/events/request_event", to: 'events#request_event', as: 'request_event'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -10,6 +10,10 @@ CommPlus::Application.routes.draw do
   resources :attendees
 
   resources :events
+  post "/events/:id", to: 'events#attend_event', as: 'attend_event'
+  post "/events/:id", to: 'events#unattend', as: 'unattend'
+
+
 
   resources :skills
 

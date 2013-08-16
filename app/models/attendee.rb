@@ -8,6 +8,7 @@
 #  skill_id   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  teach      :boolean          default(FALSE), not null
 #
 
 class Attendee < ActiveRecord::Base
@@ -17,5 +18,7 @@ class Attendee < ActiveRecord::Base
 	
 	validates :user, presence: true
 	validates :event, presence: true
-	validates :skill, presence: true
+	# Take this away for now
+	#validates :skill, presence: true
+
 end

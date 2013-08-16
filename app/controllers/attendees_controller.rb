@@ -15,7 +15,7 @@ class AttendeesController < ApplicationController
 
   # GET /attendees/new
   def new
-    @attendee = Attendee.new
+    @attendee = Attendee.new(attendee_params)
   end
 
   # GET /attendees/1/edit
@@ -31,6 +31,7 @@ class AttendeesController < ApplicationController
       if @attendee.save
         format.html { redirect_to @attendee, notice: 'Attendee was successfully created.' }
         format.json { render action: 'show', status: :created, location: @attendee }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @attendee.errors, status: :unprocessable_entity }
@@ -59,6 +60,7 @@ class AttendeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to attendees_url }
       format.json { head :no_content }
+      format.js
     end
   end
 
@@ -70,6 +72,6 @@ class AttendeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attendee_params
-      params.require(:attendee).permit(:event_id, :user_id_string, :skill_id)
+      params.require(:attendee).permit(:event_id, :user_id, :skill_id, :teach)
     end
 end

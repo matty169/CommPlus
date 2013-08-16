@@ -1,5 +1,19 @@
 <h1>Info</h1>
 
+
+
+<!-- This is not the cleanest of code, but I will have to come back to it and fix it -->
+<!-- The alternative is to correctly resize the default image or create a class which calls default images -->
+<%= image_tag(@event.photo_url, :width => 300, :height => 300, class: "img-rounded") %> <br>
+
+<div id = "attend_button">
+<% if @event.is_attendee?(current_user) %>
+  <%= link_to "Unattend", @event.attendees.where(user_id: current_user.id.to_s).first, method: :delete, remote: true %>
+<% else %>
+  <%= link_to "Attend", new_attendee_path(attendee: {event_id: @event.id, user_id: current_user.id}), remote: true ,  id: "attend_link" %>
+<% end %>
+</div>
+
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -26,74 +40,23 @@
 </p>
 
 <p>
-  <strong>Photo</strong>
-  <%= @event.photo_url %>
-</p>
-
-<p>
   <strong>Status</strong>
   <%= @event.status %>
 </p>
 
-<% @event.attendees.each do |attendee| %>
-<% if can? :manage, attendee.user %>
+  <!-- Anyone and Everyone can Edit -->
   <%= link_to 'Edit', edit_event_path(@event) %>
-  <% break %>
-<% end %>
-
-
-<% end %>
 
 
 
 
 <h1>Attendees</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @event.attendees.each do |attendee| %>
-      <tr>
-        <td><%= attendee.user.name %></td>
-        <td><%= attendee.user.description %></td>
-        <td><%= link_to 'Show', attendee.user %></td>
-        <td><%= link_to 'Edit', edit_user_path(attendee.user) %></td>
-        <td><%= link_to 'Destroy', attendee.user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Skills</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @event.attendees.each do |attendee| %>
-      <tr>
-        <td><%= attendee.skill.name %></td>
-        <td><%= attendee.skill.description %></td>
-        <td><%= link_to 'Show', attendee.skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(attendee.skill) %></td>
-        <td><%= link_to 'Destroy', attendee.skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+<ul id="event_attendees">
+  <!-- This is the long hand, just remember how its done and its DRY -->
+  <!-- <%= render :partial => '/attendees/attendee', :collection => @event.attendees %> -->
+  <%= render @event.attendees %>
+</ul>
 
 
 <%= link_to 'Back', events_path %>

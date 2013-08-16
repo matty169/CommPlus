@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Event</th>
-      <th>User id string</th>
-      <th>Skill</th>
+      <th>User id</th>
+      <th>Teach</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= attendee.event_id %></td>
         <td><%= attendee.user_id%></td>
-        <td><%= attendee.skill_id %></td>
+        <td><%= attendee.teach %></td>
         <td><%= link_to 'Show', attendee %></td>
         <td><%= link_to 'Edit', edit_attendee_path(attendee) %></td>
         <td><%= link_to 'Destroy', attendee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

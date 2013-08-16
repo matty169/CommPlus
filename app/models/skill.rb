@@ -10,6 +10,7 @@
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  level       :integer          default(0), not null
 #
 
 class Skill < ActiveRecord::Base

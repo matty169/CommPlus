@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :attend_event, :unattend]
   before_filter :authenticate_user!
 
   # GET /events
@@ -26,9 +26,10 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
+        # Very bad coding but when you create an event, you are automatically made an attendee.
+        @attendee = Attendee.create(user_id: current_user.id, event_id: @event.id)
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
@@ -60,6 +61,21 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url }
       format.json { head :no_content }
     end
+  end
+
+  def attend_event
+    @event.attend_event(current_user)
+  end
+
+  def unattend
+    @event.unattend(current_user)
+  end
+
+  def request_event
+    @event = Event.create(name: "Type Here")
+    @attendee = Attendee.create(user_id: current_user.id, event_id: @event.id)
+    Attendee.create(user_id: params[:requested_user_id], event_id: @event.id)
+    redirect_to edit_event_path(@event)
   end
 
   private

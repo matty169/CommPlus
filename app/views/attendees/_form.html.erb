@@ -1,29 +1,9 @@
-<%= form_for(@attendee) do |f| %>
-  <% if @attendee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@attendee.errors.count, "error") %> prohibited this attendee from being saved:</h2>
+<%= form_for(@attendee,:html => {:id => "attendee_form"}, remote: true) do |f| %>
 
-      <ul>
-      <% @attendee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :event_id %>
+  <%= f.radio_button :teach, true %><%= f.label "Teacher" %>
+  <%= f.radio_button :teach, false %><%= f.label "Learner" %>
+  <%= f.submit %>
 
-  <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.text_field :event_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id_string %><br>
-    <%= f.text_field :user_id_string %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id %><br>
-    <%= f.text_field :skill_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

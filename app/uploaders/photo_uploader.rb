@@ -53,6 +53,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  # Some predefined settings to create images of the various sizes.
   version :profile do
     process :eager => true
     process :resize_to_fill => [300, 300, :north]

@@ -8,6 +8,7 @@
 #  skill_id   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  teach      :boolean          default(FALSE), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

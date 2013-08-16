@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805194325) do
+ActiveRecord::Schema.define(version: 20130814093120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,19 +55,19 @@ ActiveRecord::Schema.define(version: 20130805194325) do
     t.string   "skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "teach",      default: false, null: false
   end
 
   create_table "events", force: true do |t|
-    t.string   "name",        default: "", null: false
-    t.date     "date"
-    t.time     "time"
-    t.string   "location",    default: "", null: false
-    t.string   "description", default: "", null: false
-    t.integer  "host_id"
-    t.string   "photo_url"
-    t.string   "status"
+    t.string   "name",        default: "",                    null: false
+    t.date     "date",        default: '2013-08-14',          null: false
+    t.time     "time",        default: '2000-01-01 11:15:08', null: false
+    t.string   "location",    default: "",                    null: false
+    t.string   "description", default: "",                    null: false
+    t.string   "status",      default: "unconfirmed",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo",       default: "",                    null: false
   end
 
   create_table "skills", force: true do |t|
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20130805194325) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "level",       default: 0,     null: false
   end
 
   create_table "tags", force: true do |t|

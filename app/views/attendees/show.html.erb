@@ -5,13 +5,9 @@
 
 <p>
   <strong>User id string:</strong>
-  <%=@attendee.skill.name %>
+  <%=@attendee.user.name %>
 </p>
 
-<p>
-  <strong>Skill:</strong>
-  <%= @attendee.skill_id %>
-</p>
 
 <%= link_to 'Edit', edit_attendee_path(@attendee) %> |
 <%= link_to 'Back', attendees_path %>

@@ -2,6 +2,8 @@
 
 <%= image_tag(@user.photo_url, :width => 300, :height => 300) %>
 
+<%= button_to 'Request Event', request_event_path(requested_user_id: @user.id)  %>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>

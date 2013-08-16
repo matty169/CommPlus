@@ -135,14 +135,14 @@
 
     # Create Events
 
-    hack = Event.create!(name: "Hackathon", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "Insane Coding, No sleep, Its hardcore.", host_id: matthew.id)
-    ruby = Event.create!(name: "Ruby Lesson", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "From beginners to experts. Love Ruby and its simplicity.", host_id: matthew.id)
-    parkoursaterday = Event.create!(name: "Parkour Intro", location: "Wits Red Brick", date: "2013-07-29", time: "12:00", description: "Try something new! Learn the art of movement.", host_id: matthew.id)
-    bakeaway = Event.create!(name: "Macaroon Baking", location: "Robs House", date: "2013-07-29", time: "12:00", description: "Macaroons! and finding your way around the kitchen.", host_id: matthew.id)
-    codencofee = Event.create!(name: "Code n Coffee", location: "Mug n Bean", date: "2013-07-29", time: "12:00", description: "Social in the beginning, then straight to some code.", host_id: matthew.id)
-    tennis = Event.create!(name: "Tennis Lessons", location: "Wits Tennis Courts", date: "2013-07-29", time: "12:00", description: "Perfect your skills this weekend with Ronnie Clark.", host_id: matthew.id)
-    yoga = Event.create!(name: "Fun in the Sun Yoga", location: "Wits", date: "2013-07-29", time: "12:00", description: "Stop and enjoy the moment. Be part of yoga class this weekend.", host_id: matthew.id)
-    demoday = Event.create!(name: "MIT Demo Day", location: "Wits, Alumni House", date: "2013-07-29", time: "12:00", description: "The showcase of Wits' best students.", host_id: matthew.id)
+    hack = Event.create!(name: "Hackathon", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "Insane Coding, No sleep, Its hardcore.")
+    ruby = Event.create!(name: "Ruby Lesson", location: "Wits, D-lab", date: "2013-07-29", time: "12:00", description: "From beginners to experts. Love Ruby and its simplicity.")
+    parkoursaterday = Event.create!(name: "Parkour Intro", location: "Wits Red Brick", date: "2013-07-29", time: "12:00", description: "Try something new! Learn the art of movement.")
+    bakeaway = Event.create!(name: "Macaroon Baking", location: "Robs House", date: "2013-07-29", time: "12:00", description: "Macaroons! and finding your way around the kitchen.")
+    codencofee = Event.create!(name: "Code n Coffee", location: "Mug n Bean", date: "2013-07-29", time: "12:00", description: "Social in the beginning, then straight to some code.")
+    tennis = Event.create!(name: "Tennis Lessons", location: "Wits Tennis Courts", date: "2013-07-29", time: "12:00", description: "Perfect your skills this weekend with Ronnie Clark.")
+    yoga = Event.create!(name: "Fun in the Sun Yoga", location: "Wits", date: "2013-07-29", time: "12:00", description: "Stop and enjoy the moment. Be part of yoga class this weekend.")
+    demoday = Event.create!(name: "MIT Demo Day", location: "Wits, Alumni House", date: "2013-07-29", time: "12:00", description: "The showcase of Wits' best students.")
 
     # Create Attendees # have not implemmented skill_id properly
     Attendee.create!(event_id: hack.id, user_id: matthew.id, skill_id: program.id)

@@ -24,7 +24,7 @@ gem 'pg_search'
 gem 'rails_12factor'
 gem 'omniauth-twitter'
 gem 'awesome_nested_fields'
-
+gem "rails-erd"
 
 # I love the community. Just copy paste code, not sure how it all works.
 gem 'activeadmin',         github: 'gregbell/active_admin', branch: 'rails4'

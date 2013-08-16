@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// Ujs is unobtrusive javascipt
+//
 //= require d3.v3
 //= require jquery
 //= require jquery_ujs

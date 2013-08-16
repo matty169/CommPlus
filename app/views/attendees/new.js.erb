@@ -1,0 +1,6 @@
+$('#attend_link').hide().after('<%= j render("attendees/form") %>');
+// This is not DRY but is necessary untill I cant get the proper code to work.
+$('#attendee_form').submitOnCheck();
+
+
+
