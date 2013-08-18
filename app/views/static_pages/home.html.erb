@@ -1,4 +1,13 @@
+<!-- This is very counter intuitive, but is added to counteract the padding. -->
+<!-- This allows the banner to touch the navigation bar. -->
+<style> 
+    body {
+        padding-top: 0;
+    }
+</style>
+
 <div class="center hero-unit">
+
   <h1>Welcome to Community+</h1>
 
   <h2>
@@ -7,6 +16,11 @@
 <iframe width="560" height="315" src="//www.youtube.com/embed/_gz7UjGXfZg" frameborder="0" allowfullscreen></iframe>
   <br>
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-warning" %>
+</div>
+
+<div class="container">
+	  <%= render 'static_pages/team' %>
+    <%= render 'layouts/footer' %>
 </div>
 
 

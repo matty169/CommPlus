@@ -1,0 +1,45 @@
+<%= simple_form_for(@user) do |f| %>
+
+<p>To get up and running, continue with the registration!</p>
+
+<hr class = "seperator">
+
+  	<h1>Personal Info</h1>	
+  	<div class = "row">
+  		<div class = "span6">
+  			<%= f.input :name %>
+  		</div>
+  		<div class = "span6">
+  			<%= f.file_field :photo %>
+  			<%= f.hidden_field :photo_cache %>
+  		</div>
+  	</div>
+
+  	<hr class = "seperator">
+
+  	<h1>Skills</h1>	
+    <div class = "row">
+      <div class = "span6">
+        <h2> Teach Skills </h2>
+        <%= f.fields_for :skills, @user.skills.where(teach: true) do |f| %>
+          <%= render '/forms/skill_fields', f: f, dumy: true %>
+        <% end %>
+        <%= link_to_add_fields "Add Teach Skill", f, :skills, true %>
+      </div>
+       <h2> Learn Skills </h2>
+      <div class = "span6">
+        <%= f.fields_for :skills, @user.skills.where(teach: false) do |f| %>    
+          <%= render '/forms/skill_fields', f: f , dumy: false  %>
+        <% end %>
+    <%= link_to_add_fields "Add Learn Skill", f, :skills, false %>
+      </div>
+    </div>
+
+  	
+
+    
+
+    <br>
+    <%= f.button :submit %>
+
+<% end %>

@@ -58,6 +58,11 @@ class User < ActiveRecord::Base
     using: {tsearch: {dictionary: "english"}},
     associated_against: {skills: {:name => 'A'}}
 
+
+  def tag_string()
+    tag_string = self.tags.pluck(:name).join("# ") 
+  end
+
   def self.skill_match(current_user)
     # Create a string of all the skills.
     skills_learn = current_user.skills.where(teach: false).pluck(:name).join(" ")

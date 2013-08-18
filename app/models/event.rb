@@ -41,4 +41,18 @@ class Event < ActiveRecord::Base
 
 	end
 
+	# This is to check if the current logged in user is attending the event or not.
+	# It return 0 for not attending otherwise returns the attendee_id.
+	def attendee_id(current_user)
+
+		user = self.attendees.where('user_id = ?', current_user.id.to_s).first
+
+		if user.present?
+			user.id
+		else
+			0
+		end
+
+	end
+
 end

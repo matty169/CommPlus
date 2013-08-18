@@ -54,6 +54,10 @@ class UsersController < ApplicationController
     end
   end
 
+  # This starts the json builder to render the D3 graphics.
+  def skills
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

@@ -1,20 +1,41 @@
 .axis {
 
-    path, line {
-      fill: none;
-      stroke: white;
-      shape-rendering: crispEdges;
-    }
-
-    text {
-      fill: white;
-      font-family: sans-serif;
-      font-size: 20px;
-    }
+  path, line {
+    fill: none;
+    stroke: white;
+    shape-rendering: crispEdges;
   }
 
-  .infocircle {
-    
-    fill: $green; 
-
+  text {
+    fill: white;
+    font-family: sans-serif;
+    font-size: 20px;
   }
+}
+
+.infocircle {
+  
+  fill: $green; 
+
+}
+
+.link line {
+  stroke: #696969;
+  stroke-width: 2px;
+}
+
+.link line.separator {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.node circle {
+
+}
+
+.node text {
+  font: sans-serif;
+  pointer-events: none;
+  fill: white;
+
+}

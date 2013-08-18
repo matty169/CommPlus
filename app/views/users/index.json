@@ -1,0 +1,39 @@
+{
+  "nodes": [
+    {"skill": "", "size": 0.1}, 
+    {"skill": "Parkour", "size": 5},
+    {"skill": "Tv", "size": 10},
+    {"skill": "Live", "size": 15},
+    {"skill": "Baking", "size": 10},
+    {"skill": "Tennis", "size": 2},
+
+    {"skill": "Matthew", "size": 2},
+    {"skill": "Merelda", "size": 2},
+    {"skill": "Murray", "size": 2},
+
+    {"skill": "Matthew", "size": 2},
+
+    {"skill": "Jacky", "size": 2},
+    {"skill": "Billy", "size": 2},
+    {"skill": "Zaheera", "size": 2}
+
+
+  ],
+  "links": [
+    {"source": 0, "target": 1},
+    {"source": 0, "target": 2},
+    {"source": 0, "target": 3},
+    {"source": 0, "target": 4},
+    {"source": 0, "target": 5},
+
+    {"source": 2, "target": 6},
+    {"source": 2, "target": 7},
+    {"source": 2, "target": 8},
+
+    {"source": 4, "target": 9},
+
+    {"source": 5, "target": 10},
+    {"source": 5, "target": 11},
+    {"source": 5, "target": 12}
+  ]
+}

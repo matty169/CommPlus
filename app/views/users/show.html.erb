@@ -1,81 +1,40 @@
-<h1>Info</h1>
+<h1><%= @user.name %></h1>
 
-<%= image_tag(@user.photo_url, :width => 300, :height => 300) %>
+<div class="row user_details">
+  <div class="span3 user_photo">
+    <%= image_tag(@user.photo_url, :width => 300, :height => 300, class: "img-rounded") %>
+      
+  </div>
+  <div class="span1">
+    <!-- Eventually I want to make the whole page easy to edit by having hovers and stuff. -->
+    <!-- Maybe even have LinkedIn's type of questions that help you to add more events. -->
+    <% if can? :manage, @user %>
+      <%= link_to 'Edit', edit_user_path(@user) , class: "btn btn-primary"%> <br><br>
+    <% end %>
+    <%= button_to 'Request Event', request_event_path(requested_user_id: @user.id), class: "btn btn-danger"  %>
+      
+  </div>
+  <div class="span6 offset2">
+    <h3> Tags </h3>
+    <p> <%= @user.tag_string %> </p>
+    <h3> Desciption </h3>
+    <p> <%= @user.description %> </p>
+  </div>
+</div>
 
-<%= button_to 'Request Event', request_event_path(requested_user_id: @user.id)  %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @user.is_male %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @user.location %>
-</p>
-
-
-
-<!-- <p>
-  <strong>Rating:</strong>
-  <%= @user.rating %>
-</p> -->
-
-<% if can? :manage, @user %>
-<%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+<hr class = "seperator">
 
 <h1>Skills</h1>
-<h2>Offer</h2>
+<div class="row">
+  <div class="span6" id = "skill_learn">
+      <h3>Learn</h3>
+      <%= render 'infographic/skill' %>
+  </div>
+  <div class="span5" id = "skill_teach">
+      <h3>Teach</h3>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Teach</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Numb events</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.skills.where(teach: true).each do |skill| %>
-      <tr>
-        <td><%= skill.teach %></td>
-        <td><%= skill.name %></td>
-        <td><%= skill.description %></td>
-        <td><%= skill.numb_events %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <% if can? :manage, @user %>
-                  <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-                  <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if can? :manage, @user %>
-<%= link_to 'New Skill', new_skill_path(id: @user.id) %>
-<% end %>
-
-
-<h2>Learn</h2>
+  </div>
+</div>
 
 <table class="table">
   <thead>

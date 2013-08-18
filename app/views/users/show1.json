@@ -1,0 +1,8 @@
+{
+  "nodes": [
+    {"skill": "0", "size": 2},
+    {"skill": "1", "size": 5},
+    {"skill": "2", "size": 10},
+    {"skill": "3", "size": 15}
+  ]
+}

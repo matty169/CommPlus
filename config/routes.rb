@@ -1,11 +1,14 @@
 CommPlus::Application.routes.draw do
   post "/events/request_event", to: 'events#request_event', as: 'request_event'
+  get "users/:id/skills", to: 'users#skills'
+  
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
   resources :tags
 
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"} 
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks", registrations: "registrations"} do
+    get "/registrations/after_register", to: 'registrations#after_register', as: 'after_register'
+  end
 
   resources :attendees
 
@@ -32,6 +35,9 @@ CommPlus::Application.routes.draw do
 
   get "/recommended", to: 'skills#match'
   get "/explore", to: 'skills#explore'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   namespace :api do
     resources :users, only: [:index, :show, :create, :update, :destroy]

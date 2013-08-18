@@ -1,5 +1,4 @@
 class Api::EventsController < ApplicationController
-
   http_basic_authenticate_with :name => "android", :password => "1234"
   before_action :set_event, only: [:show, :update, :destroy]
 	skip_before_filter :verify_authenticity_token,
@@ -28,7 +27,7 @@ class Api::EventsController < ApplicationController
          render :status => 200,
            :json => { :success => true,
                       :info => "Event Created",
-                      :data => {} }
+                      :data => {event_id: @event.id} }
       else
         render :status => :unprocessable_entity,
              :json => { :success => false,
