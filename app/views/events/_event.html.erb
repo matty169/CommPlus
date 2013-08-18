@@ -1,0 +1,8 @@
+
+<li class="span2">
+	<div class="thumbnail event_thumbnail">
+          <%= image_tag(event.photo_url, :width => 100, :height => 100, class: "img-rounded") %>
+          <h3> <%= link_to event.name, event %> </h3>
+          <h3> <%= event.days %> </h3>
+    </div>
+</li>

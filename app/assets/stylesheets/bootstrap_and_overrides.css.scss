@@ -127,6 +127,24 @@ footer {
 
 // This is for the team - static page.
 
+.thumbnail{
+  // Add colours to the border.
+ 
+}
+
+.event_thumbnail{
+  border: 1px solid $white;
+  box-shadow: none;
+  text-align: center;
+  
+  a {
+    color: $white;
+    &:hover {
+      color: #222;
+    }
+  }
+}
+
 #merelda{
   // Add colours to the border.
   border: 2px solid $blue;

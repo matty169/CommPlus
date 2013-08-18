@@ -8,7 +8,7 @@
 
 <div id = "attend_button">
 <% if @event.is_attendee?(current_user) %>
-  <%= link_to "Unattend", @event.attendees.where(user_id: current_user.id.to_s).first, method: :delete, remote: true %>
+  <%= link_to "Unattend", @event.attendees.where(user_id: current_user.id).first, method: :delete, remote: true %>
 <% else %>
   <%= link_to "Attend", new_attendee_path(attendee: {event_id: @event.id, user_id: current_user.id}), remote: true ,  id: "attend_link" %>
 <% end %>

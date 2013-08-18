@@ -50,9 +50,9 @@ ActiveRecord::Schema.define(version: 20130814093120) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "attendees", force: true do |t|
-    t.string   "event_id"
-    t.string   "user_id"
-    t.string   "skill_id"
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.integer  "skill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "teach",      default: false, null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20130814093120) do
 
   create_table "events", force: true do |t|
     t.string   "name",        default: "",                    null: false
-    t.date     "date",        default: '2013-08-14',          null: false
-    t.time     "time",        default: '2000-01-01 11:15:08', null: false
+    t.date     "date",        default: '2013-08-18',          null: false
+    t.time     "time",        default: '2000-01-01 20:43:30', null: false
     t.string   "location",    default: "",                    null: false
     t.string   "description", default: "",                    null: false
     t.string   "status",      default: "unconfirmed",         null: false

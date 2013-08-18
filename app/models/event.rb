@@ -41,6 +41,15 @@ class Event < ActiveRecord::Base
 
 	end
 
+	# check if it is past if not then calculate the days till event
+	def days
+		if self.date.past?
+			'Past'
+		else
+			(self.date - Date.today).to_i
+		end
+	end
+
 	# This is to check if the current logged in user is attending the event or not.
 	# It return 0 for not attending otherwise returns the attendee_id.
 	def attendee_id(current_user)

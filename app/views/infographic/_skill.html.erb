@@ -17,7 +17,7 @@ var force = d3.layout.force()
 // Retrieve the data in json form
 // Decompose the JSON and save the the force layout.
 // Force seems like it requires nodes and links to work.
-d3.json("/users/13/skills.json", function(graph) {
+d3.json("/users/1/skills.json", function(graph) {
   force
       .nodes(graph.nodes)
       .on("tick", tick) // I think this is for the movement of the drawing. The simulation
@@ -28,7 +28,7 @@ d3.json("/users/13/skills.json", function(graph) {
       .data(graph.nodes)
       .enter().append("svg:a")
       .attr("class", "node")
-      .attr("xlink:href", "http://www.google.com")
+      .attr("xlink:href", function(d) { return d.url })
       .call(force.drag);
       // Create the cicles to visually form the nodes
   node.append("circle")
@@ -43,12 +43,6 @@ d3.json("/users/13/skills.json", function(graph) {
 
       // This makes stuff move.
   function tick() {
-
-    // Select the middle of the canvas.
-
-
-
-
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   }
 });

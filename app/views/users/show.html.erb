@@ -27,94 +27,19 @@
 <h1>Skills</h1>
 <div class="row">
   <div class="span6" id = "skill_learn">
-      <h3>Learn</h3>
+      <h3>Teach</h3>
       <%= render 'infographic/skill' %>
   </div>
-  <div class="span5" id = "skill_teach">
-      <h3>Teach</h3>
-
+  <div class="span6" id = "skill_teach">
+    <h3>Learn</h3>
   </div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Teach</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Numb events</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.skills.where(teach: false).each do |skill| %>
-      <tr>
-        <td><%= skill.teach %></td>
-        <td><%= skill.name %></td>
-        <td><%= skill.description %></td>
-        <td><%= skill.numb_events %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <% if can? :manage, @user %>
-                  <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-                  <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-       
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% if can? :manage, @user %>
-<%= link_to 'New Skill', new_skill_path(id: @user.id) %>
-<% end %>
+<hr class = "seperator">
 
 <h1>Events</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Time</th>
-    </tr>
-  </thead>
+<ul class="thumbnails">
+  <%= render @user.events %>
+</ul>
 
-  <tbody>
-    <% @user.attendees.each do |attendee| %>
-      <tr>
-        <td><%= attendee.event.name %></td>
-        <td><%= attendee.event.description%></td>
-        <td><%= attendee.event.date%></td>
-        <td><%= attendee.event.time%></td>
-        <td><%= link_to 'Show', attendee.event %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>Tags</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.tags.each do |tag| %>
-      <tr>
-        <td><%= tag.name %></td>
-        <td><%= tag.tagable_type %></td>
-        <td><%= link_to 'Show', tag %></td>
-        <% if can? :manage, @user %>
-                  <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-                  <td><%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>

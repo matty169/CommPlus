@@ -23,6 +23,7 @@ class Skill < ActiveRecord::Base
 	validates :description, length: {maximum: 255}
 
 	default_scope order: 'skills.name ASC'
+	include Rails.application.routes.url_helpers
 
 	include PgSearch
 	# add some weightings.
@@ -34,6 +35,11 @@ class Skill < ActiveRecord::Base
 
 	pg_search_scope :search_offer, :against => {:name =>'A'},
 	using: {tsearch: {dictionary: "english", prefix: true, any_word: true}}
+
+	# This is to generate a url to get to the owners path.
+	def base_uri
+    	skill_path(self)
+  	end
 
 	def self.skill_match(current_user)
 		learn_string = current_user.skills.where("teach = ?", false).pluck(:name).join(" ")
