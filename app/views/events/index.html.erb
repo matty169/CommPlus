@@ -1,17 +1,15 @@
 <h1>Listing events</h1>
 
+<%= link_to 'New Event', new_event_path, class: "btn btn-danger" %>
+
+
 <table class = "table table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Date</th>
       <th>Time</th>
-      <th>Location</th>
       <th>Description</th>
-      <th>Attendee</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -21,14 +19,9 @@
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.time %></td>
-        <td><%= event.location %></td>
         <td><%= event.description %></td>
         <td><%= link_to 'Show', event %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>

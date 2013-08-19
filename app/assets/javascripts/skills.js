@@ -31,15 +31,19 @@ var force = d3.layout.force()
 // Retrieve the data in json form
 // Decompose the JSON and save the the force layout.
 // Force seems like it requires nodes and links to work.
-d3.json("/users.json", function(graph) {
+d3.json("/skills/tree.json", function(graph) {
+
+  var nodes = flatten(graph),
+      links = d3.layout.tree().links(nodes);
+
   force
-      .nodes(graph.nodes)
-      .links(graph.links)
+      .nodes(nodes)
+      .links(links)
       .on("tick", tick) // I think this is for the movement of the drawing. The simulation
       .start();   // Make the magic happen.
       // Create the links and associate the data.
   var link = svg.selectAll(".link")
-      .data(graph.links)
+      .data(links)
       .enter().append("g")
       .attr("class", "link");
 
@@ -50,30 +54,27 @@ d3.json("/users.json", function(graph) {
 
       // Create the nodes varaiables and associated to the data.
   var node = svg.selectAll(".node")
-      .data(graph.nodes)
+      .data(nodes)
       .enter().append("svg:a")
       .attr("class", "node")
-      .attr("xlink:href", "http://www.google.com")
+      .attr("xlink:href", function(d) { return d.url || "#"; })
       .call(force.drag);
       // Create the cicles to visually form the nodes
   node.append("circle")
-      .attr("r", function(d) { return radius(d.size); })
-      .style("fill", function(d) { return color(d.skill); });
+      .attr("r", function(d) { return radius(d.size) || 4.5; })
+      .style("fill", function(d) { return color(d.name); });
       // Create the text to visually identify the nodes
   node.append("text")
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
-      .text(function(d) { return d.skill; })
-      .style('font-size', function(d) { return (radius(d.size)*2) / d.skill.length + 'px'; });
+      .text(function(d) { return d.name; })
+      .style('font-size', function(d) { return (radius(d.size)*3) / d.name.length + 'px'; });
 
       // This makes stuff move.
   function tick() {
 
-    // Select the middle of the canvas.
-    graph.nodes[0].x = width / 2;
-    graph.nodes[0].y = height / 2;
-
-
+    nodes[(nodes.length-1)].x = width / 2;
+    nodes[(nodes.length-1)].y = height / 2;
 
     link.selectAll("line")
         .attr("x1", function(d) { return d.source.x; })
@@ -83,5 +84,19 @@ d3.json("/users.json", function(graph) {
 
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   }
+
+  function flatten(root) {
+  var nodes = [], i = 0;
+ 
+  function recurse(node) {
+    if (node.children) node.children.forEach(recurse);
+    if (!node.id) node.id = ++i;
+    nodes.push(node);
+  }
+ 
+  recurse(root);
+  return nodes;
+}
+
 });
 }

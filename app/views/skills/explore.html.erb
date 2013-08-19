@@ -7,62 +7,51 @@
   </div>
 </div>
 
-<h1>Listing skills</h1>
+<h1>Seach and Explore Skills</h1>
 
 <%= form_tag explore_path, :method => 'get' do %> <!-- change from post to get -->
   <p>
     <%= text_field_tag :query, params[:query] %>  <!-- the params keeps the content in the textfield -->
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :name => nil , class: "btn btn-primary"%>
   </p>
 <% end %>
-<h1>Learn</h1>
-<table>
+
+<h1>To Learn</h1>
+<table class = "table table-hover">
   <thead>
     <tr>
-      <th>Teach</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Numb events</th>
     </tr>
   </thead>
 
   <tbody>
     <% @skills_learn.each do |skill| %>
       <tr>
-        <td><%= skill.teach %></td>
         <td><%= skill.name %></td>
         <td><%= skill.description %></td>
-        <td><%= skill.numb_events %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_path(skill.user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h1>Share</h1>
+<h1>To Teach</h1>
 
-<table>
+<table class = "table table-hover">
   <thead>
     <tr>
-      <th>Teach</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Numb events</th>
     </tr>
   </thead>
 
   <tbody>
     <% @skills_offer.each do |skill| %>
       <tr>
-        <td><%= skill.teach %></td>
         <td><%= skill.name %></td>
         <td><%= skill.description %></td>
-        <td><%= skill.numb_events %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user_path(skill.user) %></td>
       </tr>
     <% end %>
   </tbody>

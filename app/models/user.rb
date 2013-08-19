@@ -52,6 +52,11 @@ class User < ActiveRecord::Base
 
   default_scope order: 'users.name ASC'
 
+  include Rails.application.routes.url_helpers
+  def base_uri
+      user_path(self)
+    end
+
   # Setup for the full-text-search using Postgres.
   include PgSearch
   pg_search_scope :skill_search,

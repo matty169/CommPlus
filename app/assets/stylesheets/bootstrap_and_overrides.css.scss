@@ -215,6 +215,10 @@ footer {
     }
 }
 
+.table tbody tr:hover td, .table tbody tr:hover th {
+    color: $black;
+}
+
 
 
 

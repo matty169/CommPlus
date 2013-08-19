@@ -36,18 +36,20 @@ class Skill < ActiveRecord::Base
 	pg_search_scope :search_offer, :against => {:name =>'A'},
 	using: {tsearch: {dictionary: "english", prefix: true, any_word: true}}
 
-	# This is to generate a url to get to the owners path.
-	def self.skill_search(string)
-		users = search(string)
+	
+	def self.skill_sea(string, current_user)
+		# The where is to make sure that the user is not the user himself.
+		users = search(string).where("user_id != ?", current_user.id)
 	end
 
+	# This is to generate a url to get to the owners path.
 	def base_uri
     	skill_path(self)
   	end
 
 	def self.skill_match(current_user)
 		learn_string = current_user.skills.where("teach = ?", false).pluck(:name).join(" ")
-		users = search(learn_string)
+		users = search(learn_string).where("user_id != ?", current_user.id)
 	end
 
 	def self.skill_recommend(current_user)

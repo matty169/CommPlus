@@ -40,7 +40,7 @@ d3.json(url, function(graph) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .text(function(d) { return d.skill; })
-      .style('font-size', function(d) { return (radius(d.size)*2) / d.skill.length + 'px'; });
+      .style('font-size', function(d) { return (radius(d.size)*3) / d.skill.length + 'px'; });
 
       // This makes stuff move.
   function tick() {
