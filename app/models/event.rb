@@ -29,6 +29,30 @@ class Event < ActiveRecord::Base
 	#Add carrierwave for event Profiile Pictures.
 	mount_uploader :photo, PhotoUploader	
 
+	def readable_inspect
+  		self.date.strftime('%a, %d %b %Y')
+	end
+
+	def readable_day
+  		self.date.strftime('%d')
+	end
+
+	def readable_month
+  		self.date.strftime('%b')
+	end
+
+	def readable_year
+  		self.date.strftime('%Y')
+	end
+
+	def readable_hour
+		self.time.strftime('%H')
+	end
+
+	def readable_minutes
+		self.time.strftime('%M')
+	end
+
 	def is_attendee?(current_user)
 		self.attendees.where('user_id = ?', current_user.id.to_s).any?
 	end
@@ -46,7 +70,7 @@ class Event < ActiveRecord::Base
 		if self.date.past?
 			'Past'
 		else
-			(self.date - Date.today).to_i
+			((self.date - Date.today).to_i).to_s + ' Days'
 		end
 	end
 

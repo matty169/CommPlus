@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :skills]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :skills, :skills_teach, :skills_learn]
   before_filter :authenticate_user!
 
   
@@ -56,6 +56,12 @@ class UsersController < ApplicationController
 
   # This starts the json builder to render the D3 graphics.
   def skills
+  end
+
+  def skills_teach
+  end
+
+  def skills_learn
   end
 
   private

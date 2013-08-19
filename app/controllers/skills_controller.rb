@@ -2,7 +2,9 @@ class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
    
-
+  def tree
+    @skills = current_user.skills.where(teach: true)
+  end
 
   def match
     @skills_learn = Skill.skill_match(current_user)

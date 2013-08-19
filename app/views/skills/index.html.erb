@@ -1,18 +1,6 @@
 <h1>Listing skills</h1>
-
-<%= form_tag skills_path, :method => 'get' do %> <!-- change from post to get -->
-  <p>
-    <%= text_field_tag :query, params[:query] %>  <!-- the params keeps the content in the textfield -->
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<div id = "skills">
+<%= javascript_tag do %>
+        skills_reccommended('#skills');
 <% end %>
-
-<ul class="skills">
-  <% @skills.each do |skill| %>  <!-- only display the skills that are taught -->
-  <li>
-    <%= image_tag(skill.user.photo_url, :width => 100, :height => 100) %>
-      <%= link_to skill.name, skill.user %>
-      <%= skill.description %>
-    </li>
-  <% end %>
-</ul>
+</div>

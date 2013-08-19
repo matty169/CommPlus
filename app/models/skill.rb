@@ -37,6 +37,10 @@ class Skill < ActiveRecord::Base
 	using: {tsearch: {dictionary: "english", prefix: true, any_word: true}}
 
 	# This is to generate a url to get to the owners path.
+	def self.skill_search(string)
+		users = search(string)
+	end
+
 	def base_uri
     	skill_path(self)
   	end

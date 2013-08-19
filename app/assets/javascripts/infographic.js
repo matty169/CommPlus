@@ -1,14 +1,14 @@
-<script type="text/javascript">
+function skills(tag, url) {
 
-var width = 500,
-    height = 500;
+	var width = 400,
+    height = 400;
 // define a color scale. I need to research more on the various color scales.
 var color = d3.scale.category20();
 // Set the radius scale.
 var radius = d3.scale.sqrt()
     .range([0, 20]);
 // Create the SVG canvas.
-var svg = d3.select("#skill_learn").append("svg")
+var svg = d3.select(tag).append("svg")
     .attr("width", width)
     .attr("height", height);
 // Use the force layout.
@@ -18,7 +18,7 @@ var force = d3.layout.force()
 // Retrieve the data in json form
 // Decompose the JSON and save the the force layout.
 // Force seems like it requires nodes and links to work.
-d3.json("/users/1/skills.json", function(graph) {
+d3.json(url, function(graph) {
   force
       .nodes(graph.nodes)
       .on("tick", tick) // I think this is for the movement of the drawing. The simulation
@@ -47,5 +47,4 @@ d3.json("/users/1/skills.json", function(graph) {
     node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
   }
 });
-
-  </script>
+}

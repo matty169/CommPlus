@@ -28,10 +28,15 @@
 <div class="row">
   <div class="span6" id = "skill_learn">
       <h3>Teach</h3>
-      <%= render 'infographic/skill' %>
+      <%= javascript_tag do %>
+        skills('#skill_learn','/users/' + <%= @user.id.to_s%> + '/skills_learn.json' );
+      <% end %>
   </div>
   <div class="span6" id = "skill_teach">
     <h3>Learn</h3>
+      <%= javascript_tag do %>
+        skills('#skill_teach','/users/' + <%= @user.id.to_s%> + '/skills_teach.json' );
+      <% end %>
   </div>
 </div>
 
@@ -42,4 +47,5 @@
 <ul class="thumbnails">
   <%= render @user.events %>
 </ul>
+
 

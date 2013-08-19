@@ -1,6 +1,9 @@
 CommPlus::Application.routes.draw do
   post "/events/request_event", to: 'events#request_event', as: 'request_event'
   get "users/:id/skills", to: 'users#skills'
+  get "users/:id/skills_teach", to: 'users#skills_teach'
+  get "users/:id/skills_learn", to: 'users#skills_learn'
+  get "skills/tree", to: 'skills#tree'
   
 
   
