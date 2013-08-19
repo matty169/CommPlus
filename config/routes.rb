@@ -38,9 +38,7 @@ CommPlus::Application.routes.draw do
 
   get "/recommended", to: 'skills#match'
   get "/explore", to: 'skills#explore'
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  
 
   namespace :api do
     resources :users, only: [:index, :show, :create, :update, :destroy]
